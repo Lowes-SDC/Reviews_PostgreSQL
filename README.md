@@ -1,7 +1,10 @@
-# FEC-Mario
+# FEC-Juan
 Full-Stack Web Application Utilizing Agile Methodology!!!
 
 # Lowes Item Description Component
+> Product Information component 
+> Shows the product information in a collapsible container
+> Items in the container, includes product description, specifications, ratings and reviees, community QA and prtoection plans. 
 
 > This is a mock-up Lowes component built to display product information and have cart functionality.
 
