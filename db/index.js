@@ -15,12 +15,12 @@ const getRandomProductId = function(callback) {
     var countquery = "SELECT COUNT(*) FROM products"
     connection.query(countquery, (err,results) => {
         if (err) {
-            callback(err)
+            callback(err,null)
         } else 
         {
             var count = results[0]['COUNT(*)'];
             let randomProduct = Math.floor(Math.random() * Number(count))
-            callback(JSON.stringify(randomProduct));
+            callback(null,JSON.stringify(randomProduct));
         }
     })
 }
@@ -29,7 +29,15 @@ const getProduct = function(productid,callback) {
     var sql = "SELECT * FROM products WHERE id = ?"
     var id = [productid]
     sql = mysql.format(sql,id);
-    console.log(sql);
+    connection.query(sql, (err,results) => {
+        if (err) {
+            callback(err,null)
+        } else  
+        {
+            callback(null,JSON.stringify(results))
+        }
+    })
+    
 }
 
 module.exports = {

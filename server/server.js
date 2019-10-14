@@ -12,18 +12,25 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(__dirname + '/../client/public/'))
 app.listen(port,() => console.log(`Express listening on port ${port}!`))
 
-app.get('/api/randomproductid', (req,res) => {
+app.get('/api/randomproduct', (req,res) => {
     db.getRandomProductId( (err,result) => {
         if(err) {
             res.send(err)
         } else 
         {
-            res.send(result)
+            db.getProduct(result, (err,product) => {
+                if (err) {
+                    res.send(err);
+                } else {
+                    res.send(JSON.stringify(product));
+                }
+            })
+
         }
     })
 })
 
-app.get('/api/products', (req,res) => {
+app.post('/api/products', (req,res) => {
     db.getProduct('14', (err,result) => {
         if (err) {
             res.send(err)

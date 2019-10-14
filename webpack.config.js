@@ -20,12 +20,12 @@ module.exports = {
   },
   resolve: { extensions: ["*", ".js", ".jsx"] },
   output: {
-    path: path.resolve(__dirname, "public/"),
-    publicPath: "/public/",
+    path: path.resolve(__dirname, "client/public/"),
+    publicPath: "/client/public/",
     filename: "bundle.js"
   },
   devServer: {
-    contentBase: path.join(__dirname, "public/"),
+    contentBase: path.join(__dirname, "client/public/"),
     port: 3000,
     publicPath: "http://localhost:3000/public/",
     hotOnly: true
