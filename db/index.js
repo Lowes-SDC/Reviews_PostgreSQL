@@ -34,7 +34,7 @@ const getProduct = function(productid,callback) {
             callback(err,null)
         } else  
         {
-            callback(null,JSON.stringify(results))
+            callback(null,results[0])
         }
     })
     
