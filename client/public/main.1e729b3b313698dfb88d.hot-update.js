@@ -1,0 +1,15 @@
+webpackHotUpdate("main",{
+
+/***/ "./client/src/BarRatings.jsx":
+/*!***********************************!*\
+  !*** ./client/src/BarRatings.jsx ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Bar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Bar */ \"./client/src/Bar.jsx\");\n/* harmony import */ var _Bar__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Bar__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\nvar BarRatings = function BarRatings(props) {\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, \"5 Stars \", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Bar__WEBPACK_IMPORTED_MODULE_1___default.a, null), \" 2\"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, \"4 Stars \", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Bar__WEBPACK_IMPORTED_MODULE_1___default.a, null), \"0\"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, \"3 Stars \", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Bar__WEBPACK_IMPORTED_MODULE_1___default.a, null), \"0\"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, \"2 Stars \", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Bar__WEBPACK_IMPORTED_MODULE_1___default.a, null), \"0\"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, \"1 Stars \", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Bar__WEBPACK_IMPORTED_MODULE_1___default.a, null), \"0\"));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (BarRatings);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9jbGllbnQvc3JjL0JhclJhdGluZ3MuanN4LmpzIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vY2xpZW50L3NyYy9CYXJSYXRpbmdzLmpzeD9mNWZjIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCdcbmltcG9ydCBCYXIgZnJvbSAnLi9CYXInXG5cbmNvbnN0IEJhclJhdGluZ3MgPSAocHJvcHMpID0+ICB7XG4gIHJldHVybiAoXG4gICAgICA8ZGl2PlxuICAgICAgICA8ZGl2PjUgU3RhcnMgPEJhci8+IDI8L2Rpdj5cbiAgICAgICAgPGRpdj40IFN0YXJzIDxCYXIvPjA8L2Rpdj5cbiAgICAgICAgPGRpdj4zIFN0YXJzIDxCYXIvPjA8L2Rpdj5cbiAgICAgICAgPGRpdj4yIFN0YXJzIDxCYXIvPjA8L2Rpdj5cbiAgICAgICAgPGRpdj4xIFN0YXJzIDxCYXIvPjA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuICAgIClcbn1cblxuZXhwb3J0IGRlZmF1bHQgQmFyUmF0aW5ncyJdLCJtYXBwaW5ncyI6IkFBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFTQTtBQUNBO0FBQ0EiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./client/src/BarRatings.jsx\n");
+
+/***/ })
+
+})

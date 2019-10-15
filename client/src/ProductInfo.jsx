@@ -5,6 +5,8 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary'
 import Typography from '@material-ui/core/Typography'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import StarsRating from './StarsRating'
+import BarRatings from './BarRatings'
 
 export default function ProductInfo(props) {
 
@@ -40,11 +42,11 @@ const handleChange = panel => (event, isExpanded) => {
                id="panel2bh-header"
                >
                    <Typography className={classes.heading}>Description</Typography>
-                   
+
 
                </ExpansionPanelSummary>
                <ExpansionPanelDetails>
-               <Typography className={classes.secondaryHeading}>{props.data.name}  </Typography>
+               <Typography className={classes.secondaryHeading}>{props.data.name} </Typography>
                 <Typography>
                          {props.data.description}
                     </Typography>
@@ -57,7 +59,7 @@ const handleChange = panel => (event, isExpanded) => {
                 id="panel3bh-header"
                 >
                     <Typography className={classes.heading}>Specifications</Typography>
-                  
+
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
                     <Typography>
@@ -73,13 +75,13 @@ const handleChange = panel => (event, isExpanded) => {
                         id="panel3bh-header"
                         >
                     <Typography className={classes.heading}>Ratings & Reviews</Typography>
-                    
+
             </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                    <Typography>
-                        Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros,
-                        vitae egestas augue. Duis vel est augue.
-                    </Typography>
+                    <div>
+                        <StarsRating />
+                        <BarRatings />
+                    </div>
                 </ExpansionPanelDetails>
       </ExpansionPanel>
       <ExpansionPanel expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
@@ -89,7 +91,7 @@ const handleChange = panel => (event, isExpanded) => {
                         id="panel3bh-header"
                         >
                     <Typography className={classes.heading}>Community Q & A</Typography>
-                    
+
             </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
                     <Typography>
