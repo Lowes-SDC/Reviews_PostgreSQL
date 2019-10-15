@@ -5,10 +5,13 @@ const BarRatingsStyle = {
   width:'100%',
   display:'flex',
 }
+const style = {
+  width:'100%'
+}
 
 const BarRatings = (props) =>  {
   return (
-      <div >
+      <div style={style} >
         <div style={BarRatingsStyle}>5 Stars <Bar percent='20'/>2</div>
         <div style={BarRatingsStyle}>4 Stars <Bar percent='43' />0</div>
         <div style={BarRatingsStyle}>3 Stars <Bar percent='18' />0</div>

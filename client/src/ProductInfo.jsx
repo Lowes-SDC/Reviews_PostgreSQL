@@ -5,8 +5,7 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary'
 import Typography from '@material-ui/core/Typography'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import StarsRating from './StarsRating'
-import BarRatings from './BarRatings'
+import Ratings from './Ratings'
 
 export default function ProductInfo(props) {
 
@@ -24,6 +23,8 @@ const useStyles = makeStyles(theme => ({
         color: theme.palette.text.secondary,
     },
 }));
+
+
 
 const classes = useStyles();
 const [expanded,setExpanded] = React.useState(false);
@@ -78,10 +79,7 @@ const handleChange = panel => (event, isExpanded) => {
 
             </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                    <div>
-                        <StarsRating />
-                        <BarRatings />
-                    </div>
+                   <Ratings/>
                 </ExpansionPanelDetails>
       </ExpansionPanel>
       <ExpansionPanel expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
