@@ -10,13 +10,15 @@ const style = {
 }
 
 const BarRatings = (props) =>  {
+  // get percents
+
   return (
       <div style={style} >
-        <div style={BarRatingsStyle}>5 Stars <Bar percent='20'/>2</div>
-        <div style={BarRatingsStyle}>4 Stars <Bar percent='43' />0</div>
-        <div style={BarRatingsStyle}>3 Stars <Bar percent='18' />0</div>
-        <div style={BarRatingsStyle}>2 Stars <Bar percent='13' />0</div>
-        <div style={BarRatingsStyle}>1 Stars <Bar percent='6' />0</div>
+        <div style={BarRatingsStyle}>5 Stars <Bar percent='20'/>{props.rating.five_stars}</div>
+        <div style={BarRatingsStyle}>4 Stars <Bar percent='43' />{props.rating.four_stars}</div>
+        <div style={BarRatingsStyle}>3 Stars <Bar percent='18' />{props.rating.three_stars}</div>
+        <div style={BarRatingsStyle}>2 Stars <Bar percent='13' />{props.rating.two_stars}</div>
+        <div style={BarRatingsStyle}>1 Stars <Bar percent='6' />{props.rating.one_star}</div>
       </div>
     )
 }

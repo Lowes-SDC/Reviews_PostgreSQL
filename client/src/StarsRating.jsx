@@ -4,7 +4,7 @@ const StarsRating = (props) => {
   return (
     <div>
       <div>
-        2 ratings
+       {props.totalVotes} ratings
         <div>
           &#9733;
           &#9733;
@@ -12,7 +12,7 @@ const StarsRating = (props) => {
           &#9733;
           &#9733;
         </div>
-      5.0 average
+      {props.stars} average
       </div>
     </div>
   )

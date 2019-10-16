@@ -12,31 +12,53 @@ class Ratings extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      rating: {}
+      rating: {},
+      starAverage: 0
     }
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
     // get rating for current product
-    console.log('Ratings ComponentDidMount()' +this.props.productId)
-    axios.get('/api/productrating', {
-      params: {
-        id: this.props.productId
-      }
-    })
-    .then(response => {
-      this.setState({
-        rating:response.data
+    if (this.props.productId !== prevProps.productId) {
+      axios.get('/api/productrating', {
+        params: {
+          id: this.props.productId
+        }
       })
-    })
+      .then(response => {
+        let result = response.data[0];
+        result.totalVotes = result.one_star + result.two_stars + result.three_stars + result.four_stars + result.five_stars;
+        this.setState({
+          rating:result,
+          stars: this.calculateStarAverage(result)
+        })
+      })
+    }
+
+  }
+  calculateStarAverage(stars) {
+    let weighted = stars.one_star * 1;
+    weighted += stars.two_stars * 2;
+    weighted += stars.three_stars * 3;
+    weighted += stars.four_stars * 4;
+    weighted += stars.five_stars * 5;
+
+    var sum = stars.one_star;
+    sum += stars.two_stars;
+    sum += stars.three_stars;
+    sum += stars.four_stars;
+    sum += stars.five_stars;
+    let avg = weighted/sum;
+
+    return avg.toFixed(2);
 
   }
 
   render() {
     return(
       <div style={ratingStyle}>
-            <StarsRating />
-            <BarRatings />
+            <StarsRating stars={this.state.stars} totalVotes={this.state.rating.totalVotes}/>
+            <BarRatings rating={this.state.rating}/>
       </div>
     )
   }

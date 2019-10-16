@@ -41,9 +41,17 @@ const getProduct = function(productid,callback) {
 }
 
 const getProductRating = function(productId, callback) {
-    var sql = "SELECT * FROM reviews WHERE id = ?"
+    var sql = "SELECT * FROM reviews WHERE product_id = ?"
     var id = [productId]
     sql = mysql.format(sql,id);
+    connection.query(sql, (err,results) => {
+        if (err) {
+            callback(err,null)
+        } else
+        {
+            callback(null,results)
+        }
+    })
 
 }
 

@@ -43,12 +43,15 @@ app.post('/api/products', (req,res) => {
 
 app.get('/api/productrating', (req,res) => {
     // get id
-    let id = req.id;
-    console.log('got id '+id);
-    res.send(id);
-    // db.getRatings(id, (err,result) => {
-    //  res.send("hello");
-    // })
+    let id = req.query.id;
+    db.getProductRating(id, (err,result) => {
+        if (err) {
+            res.send(err);
+        } else
+        {
+            res.send(JSON.stringify(result));
+        }
+    })
 })
 
 app.get('/api/initialize', (req,res) => {
