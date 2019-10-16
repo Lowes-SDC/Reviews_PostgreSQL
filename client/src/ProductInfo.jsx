@@ -40,8 +40,7 @@ const handleChange = panel => (event, isExpanded) => {
                <ExpansionPanelSummary
                expandIcon={<ExpandMoreIcon/>}
                aria-controls="panel2bh-content"
-               id="panel2bh-header"
-               >
+               id="panel2bh-header">
                    <Typography className={classes.heading}>Description</Typography>
 
 
@@ -79,7 +78,7 @@ const handleChange = panel => (event, isExpanded) => {
 
             </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                   <Ratings/>
+                   <Ratings productId={props.data.id}/>
                 </ExpansionPanelDetails>
       </ExpansionPanel>
       <ExpansionPanel expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>

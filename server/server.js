@@ -10,13 +10,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.use(express.static(__dirname + '/../client/public/'))
-app.listen(port,() => console.log(`Express listening on port ${port}!`))
+app.listen(port,() => console.log(` Express listening on port ${port}!`))
 
 app.get('/api/randomproduct', (req,res) => {
     db.getRandomProductId( (err,result) => {
         if(err) {
             res.send(err)
-        } else 
+        } else
         {
             db.getProduct(result, (err,product) => {
                 if (err) {
@@ -34,10 +34,30 @@ app.post('/api/products', (req,res) => {
     db.getProduct('14', (err,result) => {
         if (err) {
             res.send(err)
-        } else 
+        } else
         {
             res.send(result);
         }
     } )
 })
 
+app.get('/api/productrating', (req,res) => {
+    // get id
+    let id = req.id;
+    console.log('got id '+id);
+    res.send(id);
+    // db.getRatings(id, (err,result) => {
+    //  res.send("hello");
+    // })
+})
+
+app.get('/api/initialize', (req,res) => {
+    console.log('initializing data');
+    db.initializereviews( (err,result) => {
+        if (err) {
+            res.send(err)
+        } else {
+            res.send(result)
+        }
+    })
+})
