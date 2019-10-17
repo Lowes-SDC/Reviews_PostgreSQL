@@ -13,7 +13,8 @@ class Ratings extends Component {
     super(props)
     this.state = {
       rating: {},
-      starAverage: 0
+      starAverage: 0,
+      percents: {}
     }
   }
 
@@ -30,11 +31,11 @@ class Ratings extends Component {
         result.totalVotes = result.one_star + result.two_stars + result.three_stars + result.four_stars + result.five_stars;
         this.setState({
           rating:result,
-          stars: this.calculateStarAverage(result)
+          stars: this.calculateStarAverage(result),
+          percents: this.calculatePercents(result)
         })
       })
     }
-
   }
   calculateStarAverage(stars) {
     let weighted = stars.one_star * 1;
@@ -49,16 +50,23 @@ class Ratings extends Component {
     sum += stars.four_stars;
     sum += stars.five_stars;
     let avg = weighted/sum;
-
     return avg.toFixed(2);
-
+  }
+  calculatePercents(rating) {
+    var percents = {}
+    percents.one = Math.floor(rating.one_star/rating.totalVotes * 100);
+    percents.two = Math.floor(rating.two_stars/rating.totalVotes * 100);
+    percents.three = Math.floor(rating.three_stars/rating.totalVotes * 100);
+    percents.four = Math.floor(rating.four_stars/rating.totalVotes * 100);
+    percents.five = Math.floor(rating.five_stars/rating.totalVotes * 100);
+    return percents;
   }
 
   render() {
     return(
       <div style={ratingStyle}>
             <StarsRating stars={this.state.stars} totalVotes={this.state.rating.totalVotes}/>
-            <BarRatings rating={this.state.rating}/>
+            <BarRatings rating={this.state.rating} percents={this.state.percents}/>
       </div>
     )
   }
