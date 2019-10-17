@@ -2,12 +2,14 @@ import React, {Component} from 'react'
 import StarsRating from './StarsRating'
 import BarRatings from './BarRatings'
 import axios from 'axios'
+import Recommendations  from './Recommendations'
+import WriteReview from './WriteReview'
 
 const ratingStyle = {
     width:'100%',
     display:'flex',
     flexDirection:'row'
-    
+
 
 }
 
@@ -70,11 +72,17 @@ class Ratings extends Component {
     return(
       <div style={ratingStyle}>
         <div>
+          <Recommendations />
+        </div>
+        <div>
             <StarsRating stars={this.state.stars} totalVotes={this.state.rating.totalVotes}/>
-          </div>
-          <div>
+        </div>
+        <div>
             <BarRatings rating={this.state.rating} percents={this.state.percents}/>
-          </div>
+        </div>
+        <div>
+          <WriteReview />
+        </div>
       </div>
     )
   }
