@@ -4,7 +4,11 @@ import BarRatings from './BarRatings'
 import axios from 'axios'
 
 const ratingStyle = {
-    width:'100%'
+    width:'100%',
+    display:'flex',
+    flexDirection:'row'
+    
+
 }
 
 
@@ -65,8 +69,12 @@ class Ratings extends Component {
   render() {
     return(
       <div style={ratingStyle}>
+        <div>
             <StarsRating stars={this.state.stars} totalVotes={this.state.rating.totalVotes}/>
+          </div>
+          <div>
             <BarRatings rating={this.state.rating} percents={this.state.percents}/>
+          </div>
       </div>
     )
   }
