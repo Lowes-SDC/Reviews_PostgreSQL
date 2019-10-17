@@ -36,11 +36,11 @@ const handleChange = panel => (event, isExpanded) => {
 
     return (
         <div className={classes.root}>
-           <ExpansionPanel expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+           <ExpansionPanel  >
                <ExpansionPanelSummary
                expandIcon={<ExpandMoreIcon/>}
-               aria-controls="panel2bh-content"
-               id="panel2bh-header">
+               aria-controls="panel1a-content"
+               id="panel1a-header">
                    <Typography className={classes.heading}>Description</Typography>
 
 
@@ -52,7 +52,7 @@ const handleChange = panel => (event, isExpanded) => {
                     </Typography>
                </ExpansionPanelDetails>
         </ExpansionPanel>
-           <ExpansionPanel expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+           <ExpansionPanel >
                 <ExpansionPanelSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel2bh-content"
@@ -68,7 +68,7 @@ const handleChange = panel => (event, isExpanded) => {
                     </Typography>
                 </ExpansionPanelDetails>
       </ExpansionPanel>
-      <ExpansionPanel expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+      <ExpansionPanel >
             <ExpansionPanelSummary
                         expandIcon={<ExpandMoreIcon />}
                         aria-controls="panel3bh-content"
@@ -81,7 +81,7 @@ const handleChange = panel => (event, isExpanded) => {
                    <Ratings productId={props.data.id}/>
                 </ExpansionPanelDetails>
       </ExpansionPanel>
-      <ExpansionPanel expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
+      <ExpansionPanel >
             <ExpansionPanelSummary
                         expandIcon={<ExpandMoreIcon />}
                         aria-controls="panel4bh-content"
