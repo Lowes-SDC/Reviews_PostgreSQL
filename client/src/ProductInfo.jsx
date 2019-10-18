@@ -7,6 +7,9 @@ import Typography from '@material-ui/core/Typography'
 import Add from '@material-ui/icons/Add'
 import Ratings from './Ratings'
 import Info from '@material-ui/icons/InfoOutlined'
+import StarIcon from '@material-ui/icons/StarBorder'
+
+StarHalf
 
 export default function ProductInfo(props) {
 
@@ -84,6 +87,7 @@ const classes = useStyles();
                         aria-controls="panel3bh-content"
                         id="panel3bh-header"
                         >
+                    <StarIcon />
                     <Typography className={classes.heading}>Ratings & Reviews</Typography>
 
             </ExpansionPanelSummary>
