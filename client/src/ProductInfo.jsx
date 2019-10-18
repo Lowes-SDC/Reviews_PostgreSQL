@@ -8,6 +8,8 @@ import Add from '@material-ui/icons/Add'
 import Ratings from './Ratings'
 import Info from '@material-ui/icons/InfoOutlined'
 import StarIcon from '@material-ui/icons/StarBorder'
+import QA from '@material-ui/icons/QuestionAnswerOutlined'
+import Specs from '@material-ui/icons/LibraryBooksRounded';
 
 //StarHalf
 
@@ -70,6 +72,7 @@ const classes = useStyles();
                 aria-controls="panel2bh-content"
                 id="panel3bh-header"
                 >
+                    <Specs/>
                     <Typography className={classes.heading}>Specifications</Typography>
 
                 </ExpansionPanelSummary>
@@ -102,6 +105,7 @@ const classes = useStyles();
                     aria-controls="panel4bh-content"
                     id="panel3bh-header"
                         >
+                    <QA/>
                     <Typography className={classes.heading}>Community Q & A</Typography>
 
             </ExpansionPanelSummary>
