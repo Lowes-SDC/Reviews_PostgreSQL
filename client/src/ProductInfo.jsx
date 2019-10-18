@@ -12,6 +12,10 @@ export default function ProductInfo(props) {
 const useStyles = makeStyles(theme => ({
     root: {
         width:'100%',
+      
+    },
+    multiExpansionPanelSummary: {
+        backgroundColor:'#ff0',
     },
     heading: {
         fontSize: theme.typography.pxToRem(15),
@@ -27,17 +31,14 @@ const useStyles = makeStyles(theme => ({
 
 
 const classes = useStyles();
-const [expanded,setExpanded] = React.useState(false);
 
-const handleChange = panel => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel: false);
-}
 
 
     return (
         <div className={classes.root}>
            <ExpansionPanel  >
                <ExpansionPanelSummary
+               className ={classes.multiExpansionPanelSummary}
                expandIcon={<ExpandMoreIcon/>}
                aria-controls="panel1a-content"
                id="panel1a-header">
