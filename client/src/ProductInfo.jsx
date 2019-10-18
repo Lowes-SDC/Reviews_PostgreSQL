@@ -9,7 +9,7 @@ import Ratings from './Ratings'
 import Info from '@material-ui/icons/InfoOutlined'
 import StarIcon from '@material-ui/icons/StarBorder'
 
-StarHalf
+//StarHalf
 
 export default function ProductInfo(props) {
 
