@@ -11,7 +11,7 @@ const backgroundStyle = {
 const Bar = (props) => {
 
   let foregroundStyle = {
-    background: '#3C3CCC',
+    background: '#004990',
     width: '50%',
     height: '15px'
   }

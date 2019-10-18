@@ -4,21 +4,24 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel'
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary'
 import Typography from '@material-ui/core/Typography'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import Add from '@material-ui/icons/Add'
 import Ratings from './Ratings'
+import Info from '@material-ui/icons/InfoOutlined'
 
 export default function ProductInfo(props) {
 
 const useStyles = makeStyles(theme => ({
     root: {
         width:'100%',
-      
+
     },
     multiExpansionPanelSummary: {
-        backgroundColor:'#ff0',
+        color:'#fff',
+        backgroundColor:'#036196',
     },
     heading: {
         fontSize: theme.typography.pxToRem(15),
+        color: '#fff',
         flexBasis: '33.33%',
         flexShrink: 0,
     },
@@ -26,6 +29,9 @@ const useStyles = makeStyles(theme => ({
         fontSize: theme.typography.pxToRem(15),
         color: theme.palette.text.secondary,
     },
+    icon : {
+        color:'#fff',
+    }
 }));
 
 
@@ -39,10 +45,11 @@ const classes = useStyles();
            <ExpansionPanel  >
                <ExpansionPanelSummary
                className ={classes.multiExpansionPanelSummary}
-               expandIcon={<ExpandMoreIcon/>}
+               expandIcon={<Add className={classes.icon}/>}
                aria-controls="panel1a-content"
                id="panel1a-header">
-                   <Typography className={classes.heading}>Description</Typography>
+                    <Info />
+                   <Typography className={classes.heading}>&nbsp;Description</Typography>
 
 
                </ExpansionPanelSummary>
@@ -55,7 +62,8 @@ const classes = useStyles();
         </ExpansionPanel>
            <ExpansionPanel >
                 <ExpansionPanelSummary
-                expandIcon={<ExpandMoreIcon />}
+                 className ={classes.multiExpansionPanelSummary}
+                expandIcon={<Add className={classes.icon}/>}
                 aria-controls="panel2bh-content"
                 id="panel3bh-header"
                 >
@@ -71,7 +79,8 @@ const classes = useStyles();
       </ExpansionPanel>
       <ExpansionPanel >
             <ExpansionPanelSummary
-                        expandIcon={<ExpandMoreIcon />}
+                        className ={classes.multiExpansionPanelSummary}
+                        expandIcon={<Add className={classes.icon}/>}
                         aria-controls="panel3bh-content"
                         id="panel3bh-header"
                         >
@@ -84,9 +93,10 @@ const classes = useStyles();
       </ExpansionPanel>
       <ExpansionPanel >
             <ExpansionPanelSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel4bh-content"
-                        id="panel3bh-header"
+                    className ={classes.multiExpansionPanelSummary}
+                    expandIcon={<Add className={classes.icon}/>}
+                    aria-controls="panel4bh-content"
+                    id="panel3bh-header"
                         >
                     <Typography className={classes.heading}>Community Q & A</Typography>
 
