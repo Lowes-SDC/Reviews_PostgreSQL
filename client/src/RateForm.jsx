@@ -14,7 +14,7 @@ const RateForm = (props) => {
         </div>
         <div>
           {/** title goes here */}
-          <label for="rating">Overall Rating*</label>
+          <label for='rating'>Overall Rating*</label>
           <select id="ratingSelector">
             <option value='0'>Select Rating</option>
             <option value='1'>1 Star</option>
@@ -58,8 +58,14 @@ const RateForm = (props) => {
         </div>
       </div>
       <div>
-        <button>Cancel</button>
-        <button>SUBMIT YOUR REVIEW</button>
+        <button
+        onClick = {e => {
+          props.close();
+        }}
+        >
+          Cancel</button>
+        <button
+        >SUBMIT YOUR REVIEW</button>
       </div>
     </div>
 

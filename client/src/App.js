@@ -17,7 +17,7 @@ class App extends Component {
     showRateForm() {
         console.log('ShowRateForm');
         this.setState({
-            rateFormShow:true,
+            rateFormShow:!this.state.rateFormShow,
         })
     }
 
@@ -36,7 +36,7 @@ class App extends Component {
             <div>
 
                 <ProductInfo data={this.state.selectedProduct} showForm={this.showRateForm} />
-                <RateForm show={this.state.rateFormShow} />
+                <RateForm show={this.state.rateFormShow} close={this.showRateForm}/>
            </div>
         )
     }
