@@ -9,10 +9,36 @@ const ratingStyle = {
     width:'100%',
     display:'flex',
     flexDirection:'row'
-
-
 }
 
+const StarsContainerStyle = {
+  paddingTop: '40px',
+  verticalAlign:'middle',
+  flexGrow:'1',
+  textAlign:'center',
+}
+const RatingsContainerStyle = {
+  paddingTop: '10px',
+  fontFamily:'Helvetica,Arial,sans-serif',
+  fontSize:'14px',
+  flexGrow:'1',
+  textAlign:'center',
+  backgroundColor:'#eaeaea'
+ 
+}
+
+const BarRatingsStyle = {
+  paddingTop: '30px',
+  fontFamily:'Helvetica,Arial,sans-serif',
+  fontSize:'14px',
+  flexGrow:'1',
+  paddingBottom: '20px',
+}
+
+const ReviewsStyle = {
+  paddingTop: '40px',
+  flexGrow:'1',
+}
 
 class Ratings extends Component {
   constructor(props) {
@@ -71,16 +97,16 @@ class Ratings extends Component {
   render() {
     return(
       <div style={ratingStyle}>
-        <div>
+        <div style={RatingsContainerStyle}>
           <Recommendations />
         </div>
-        <div>
+        <div style={StarsContainerStyle}>
             <StarsRating stars={this.state.stars} totalVotes={this.state.rating.totalVotes}/>
         </div>
-        <div>
+        <div style={BarRatingsStyle}>
             <BarRatings rating={this.state.rating} percents={this.state.percents}/>
         </div>
-        <div>
+        <div style={ReviewsStyle}>
           <WriteReview />
         </div>
       </div>

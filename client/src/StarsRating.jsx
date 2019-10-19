@@ -1,13 +1,14 @@
 import React from 'react'
 import StarIcon from '@material-ui/icons/Star';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
 import StarHalfIcon from '@material-ui/icons/StarHalf';
+
 
 
 const StarsRatingStyle = {
   width:'100%',
   fontFamily:'Helvetica,Arial,sans-serif',
-  fontSize:'14px'
+  fontSize:'14px',
+  verticalAlign: 'middle',
 }
 
 const StarsRating = (props) => {
