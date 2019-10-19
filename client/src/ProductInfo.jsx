@@ -54,7 +54,7 @@ const classes = useStyles();
                aria-controls="panel1a-content"
                id="panel1a-header">
                     <Info />
-                   <Typography className={classes.heading}>&nbsp;Description</Typography>
+                   <Typography className={classes.heading}>&nbsp;&nbsp;&nbsp;Description</Typography>
 
 
                </ExpansionPanelSummary>
@@ -73,7 +73,7 @@ const classes = useStyles();
                 id="panel3bh-header"
                 >
                     <Specs/>
-                    <Typography className={classes.heading}>Specifications</Typography>
+                    <Typography className={classes.heading}>&nbsp;&nbsp;&nbsp;Specifications</Typography>
 
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
@@ -91,11 +91,11 @@ const classes = useStyles();
                         id="panel3bh-header"
                         >
                     <StarIcon />
-                    <Typography className={classes.heading}>Ratings & Reviews</Typography>
+                    <Typography className={classes.heading}>&nbsp;&nbsp;&nbsp;Ratings & Reviews</Typography>
 
             </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                   <Ratings productId={props.data.id}/>
+                   <Ratings productId={props.data.id} showForm={props.showForm}/>
                 </ExpansionPanelDetails>
       </ExpansionPanel>
       <ExpansionPanel >
@@ -106,7 +106,7 @@ const classes = useStyles();
                     id="panel3bh-header"
                         >
                     <QA/>
-                    <Typography className={classes.heading}>Community Q & A</Typography>
+                    <Typography className={classes.heading}>&nbsp;&nbsp;&nbsp;Community Q & A</Typography>
 
             </ExpansionPanelSummary>
                 <ExpansionPanelDetails>

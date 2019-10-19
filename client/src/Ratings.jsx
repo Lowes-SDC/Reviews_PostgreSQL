@@ -24,7 +24,7 @@ const RatingsContainerStyle = {
   flexGrow:'1',
   textAlign:'center',
   backgroundColor:'#eaeaea'
- 
+
 }
 
 const BarRatingsStyle = {
@@ -107,7 +107,7 @@ class Ratings extends Component {
             <BarRatings rating={this.state.rating} percents={this.state.percents}/>
         </div>
         <div style={ReviewsStyle}>
-          <WriteReview />
+          <WriteReview show={this.props.showForm} />
         </div>
       </div>
     )

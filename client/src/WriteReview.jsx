@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 
  const buttonStyle = {
   cursor:'pointer',
@@ -22,11 +22,15 @@ import React from 'react'
  }
 
 const WriteReview = (props) => {
-return(
-  <div>
-    <button style={buttonStyle}>WRITE A REVIEW</button>
-  </div>
-  )
+
+    return(
+    <div>
+      <button onClick={e => {
+        props.show();
+      }} style={buttonStyle}>WRITE A REVIEW</button>
+    </div>
+    )
+
 }
 
 export default WriteReview

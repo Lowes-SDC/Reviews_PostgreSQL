@@ -1,14 +1,24 @@
 import React, {Component} from 'react'
 import ProductInfo from './ProductInfo.jsx'
+import RateForm from './RateForm'
 import axios from 'axios'
 
 class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            selectedProduct:{}
+            selectedProduct:{},
+            rateFormShow:false
 
         }
+    this.showRateForm = this.showRateForm.bind(this);
+    }
+
+    showRateForm() {
+        console.log('ShowRateForm');
+        this.setState({
+            rateFormShow:true,
+        })
     }
 
     componentDidMount() {
@@ -23,7 +33,11 @@ class App extends Component {
 
     render() {
         return(
-           <ProductInfo data={this.state.selectedProduct}/>
+            <div>
+
+                <ProductInfo data={this.state.selectedProduct} showForm={this.showRateForm} />
+                <RateForm show={this.state.rateFormShow} />
+           </div>
         )
     }
 }
