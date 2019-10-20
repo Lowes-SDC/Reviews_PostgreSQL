@@ -8,7 +8,9 @@ import WriteReview from './WriteReview'
 const ratingStyle = {
     width:'100%',
     display:'flex',
-    flexDirection:'row'
+    flexDirection:'row',
+    flexFlow: 'row wrap',
+    justifyContent: 'space-around'
 }
 
 const StarsContainerStyle = {
