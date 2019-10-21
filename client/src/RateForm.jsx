@@ -1,19 +1,26 @@
 import React from 'react'
-
+const formStyle = {
+  padding:'20px',
+  fontFamily: 'Helvetica,Arial,sans-serif',
+  display:'grid',
+  gridTemplateColumn:'200px Auto',
+  gridTemplateRow:'200px Auto'
+ 
+}
+const topContainer = {
+  display:'block',
+}
 
 const RateForm = (props) => {
-  if (!props.show) {
-    return null;
-  }
     return (
-    <div>
+    <div style={formStyle}>
       <h1>Write a Review</h1>
-      <div>
-        <div>
-          {/** pic goes here */}
-        </div>
-        <div>
-          {/** title goes here */}
+      <div style={topContainer}>
+        <div >
+          <img src={props.product.url} width='190px' />
+            {props.product.name}
+          </div>
+          <div>
           <label for='rating'>Overall Rating*</label>
           <select id="ratingSelector">
             <option value='0'>Select Rating</option>
@@ -60,7 +67,7 @@ const RateForm = (props) => {
       <div>
         <button
         onClick = {e => {
-          props.close();
+          props.close(false);
         }}
         >
           Cancel</button>

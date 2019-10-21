@@ -95,7 +95,7 @@ const classes = useStyles();
 
             </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                   <Ratings productId={props.data.id} showForm={props.showForm}/>
+                   <Ratings product={props.data} showForm={props.showForm}/>
                 </ExpansionPanelDetails>
       </ExpansionPanel>
       <ExpansionPanel >

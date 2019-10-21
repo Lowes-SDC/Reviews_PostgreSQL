@@ -4,6 +4,8 @@ import BarRatings from './BarRatings'
 import axios from 'axios'
 import Recommendations  from './Recommendations'
 import WriteReview from './WriteReview'
+import Drawer from '@material-ui/core/drawer'
+import RateForm from './RateForm'
 
 const ratingStyle = {
     width:'100%',
@@ -48,16 +50,22 @@ class Ratings extends Component {
     this.state = {
       rating: {},
       starAverage: 0,
-      percents: {}
+      percents: {},
+      drawerOpen:false,
     }
+    this.toggleDrawer = this.toggleDrawer.bind(this)
+  }
+
+  toggleDrawer(open) {
+    this.setState({drawerOpen:open})
   }
 
   componentDidUpdate(prevProps) {
     // get rating for current product
-    if (this.props.productId !== prevProps.productId) {
+    if (this.props.product !== prevProps.product) {
       axios.get('/api/productrating', {
         params: {
-          id: this.props.productId
+          id: this.props.product.id
         }
       })
       .then(response => {
@@ -109,8 +117,15 @@ class Ratings extends Component {
             <BarRatings rating={this.state.rating} percents={this.state.percents}/>
         </div>
         <div style={ReviewsStyle}>
-          <WriteReview show={this.props.showForm} />
+          <WriteReview show={this.toggleDrawer} />
         </div>
+        <Drawer anchor='bottom' open={this.state.drawerOpen} >
+          <div>
+            <RateForm product={this.props.product} close={this.toggleDrawer}/>
+          </div>
+
+        </Drawer>
+
       </div>
     )
   }

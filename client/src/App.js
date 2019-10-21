@@ -8,18 +8,9 @@ class App extends Component {
         super(props)
         this.state = {
             selectedProduct:{},
-            rateFormShow:false
-
         }
-    this.showRateForm = this.showRateForm.bind(this);
     }
 
-    showRateForm() {
-        console.log('ShowRateForm');
-        this.setState({
-            rateFormShow:!this.state.rateFormShow,
-        })
-    }
 
     componentDidMount() {
         // get a randomProduct to pass to our component
@@ -34,9 +25,7 @@ class App extends Component {
     render() {
         return(
             <div>
-
-                <ProductInfo data={this.state.selectedProduct} showForm={this.showRateForm} />
-                <RateForm show={this.state.rateFormShow} close={this.showRateForm}/>
+                <ProductInfo data={this.state.selectedProduct} />
            </div>
         )
     }

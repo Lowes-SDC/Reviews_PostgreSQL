@@ -26,7 +26,7 @@ const WriteReview = (props) => {
     return(
     <div>
       <button onClick={e => {
-        props.show();
+        props.show(true);
       }} style={buttonStyle}>WRITE A REVIEW</button>
     </div>
     )
