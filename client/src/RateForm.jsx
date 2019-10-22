@@ -1,6 +1,7 @@
 import React from 'react'
 import buttonStyle from './ButtonStyle'
 
+
 const formStyle = {
   padding:'20px',
   fontFamily: 'Helvetica,Arial,sans-serif',
@@ -14,16 +15,34 @@ const formText = {
 }
 const picture = {
   
- 
+}
+
+const aboutYouStyle = {
+  color: '#999! important',
+  backgroundColor: '#F2F2F2',
+  padding:'20px',
+  fontWeight:'700',
+  fontSize:'14px',
+}
+
+const textBoxStyle = {
+  height:'44px',
+  fontSize:'1rem',
+  backgroundColor:'#FFF',
+  backgroundImage:'none',
+  border:'1px solid #CCC',
+  boxSizing:'border-box',
+  padding:'0 0 0 10px',
+  width: '100%'
 }
 
 const ratingDiv = {
-  width:'100%',
   paddingRight:'10px'
 }
+
 const selectStyle = {
   fontFamily: 'Helvetica,Arial,sans-serif',
-  width:'100%',
+  width:'80%',
   height:'44px',
   backgroundColor:'#FFF',
   border: '1px solid #CCC',
@@ -44,8 +63,11 @@ const mainTitle = {
 }
 
 const subtitle = {
+  paddingTop:'5px',
   paddingRight:'20px',
-  paddingBottom:'10px',
+  paddingBottom:'5px',
+  fontWeight:'700',
+  fontSize:'14px',
 }
 const mainContainer = {
   padding:'20px',
@@ -54,6 +76,7 @@ const mainContainer = {
 
 const titleStyle = {
   padding:'20px',
+  width:'100%',
   fontSize: '1.6rem'
 }
 const reviewDiv = {
@@ -100,14 +123,14 @@ const RateForm = (props) => {
         </div>
       </div>
       <div style={formText}>
-        <label htmlFor='review_title'> Review Title </label>
-        <input type ='text' id='review_title'/>
+        <div style={subtitle}> Review Title </div>
+        <input style={textBoxStyle} type ='text' id='review_title'/>
       </div>
       <div>
-        <label htmlFor='detailed_review'>Detailed Review</label>
-        <textarea id='detailed_review'></textarea>
+        <div style={subtitle} > Detailed Review</div>
+        <textarea style={textBoxStyle} id='detailed_review'></textarea>
       </div>
-      <div>
+      <div style={aboutYouStyle}>
         About you
         <div>
           <label htmlFor='nickname'>Your Nickname</label>
