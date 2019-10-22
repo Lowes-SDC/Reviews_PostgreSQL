@@ -17,12 +17,22 @@ const picture = {
   
 }
 
-const aboutYouStyle = {
+const aboutYouContainer = {
   color: '#999! important',
   backgroundColor: '#F2F2F2',
   padding:'20px',
   fontWeight:'700',
   fontSize:'14px',
+ 
+}
+
+const aboutYouStyle = {
+  fontSize:  '1.3rem',
+  paddingBottom: '10px',
+  fontWeight: '700',
+  color: '#333',
+  display: 'flex',
+  flexDirection:'column'
 }
 
 const textBoxStyle = {
@@ -36,9 +46,22 @@ const textBoxStyle = {
   width: '100%'
 }
 
+const textAreaStyle = {
+  fontSize:'1rem',
+  backgroundColor:'#FFF',
+  backgroundImage:'none',
+  border:'1px solid #CCC',
+  boxSizing:'border-box',
+  padding:'0 0 0 10px',
+  width: '100%'
+}
+
+
+
 const ratingDiv = {
   paddingRight:'10px'
 }
+
 
 const selectStyle = {
   fontFamily: 'Helvetica,Arial,sans-serif',
@@ -74,6 +97,11 @@ const mainContainer = {
   fontFamily: 'Helvetica,Arial,sans-serif',
 }
 
+const emailFormContainer = {
+  display:'flex',
+  flexDirection:'row',
+  width:'100%'
+}
 const titleStyle = {
   padding:'20px',
   width:'100%',
@@ -89,6 +117,18 @@ const reviewDiv = {
   width:'100%'
   
 }
+const emailForm = {
+  width:'100%',
+  flexGrow:'2',
+}
+
+const purchaseStyle = {
+  paddingTop:'5px',
+  paddingLeft:'30px',
+  width:'100%',
+  flexGrow:'1'
+}
+
 const RateForm = (props) => {
     return (
     <div style={mainContainer}>
@@ -128,29 +168,32 @@ const RateForm = (props) => {
       </div>
       <div>
         <div style={subtitle} > Detailed Review</div>
-        <textarea style={textBoxStyle} id='detailed_review'></textarea>
+        <textarea rows='6' style={textAreaStyle} id='detailed_review'></textarea>
       </div>
-      <div style={aboutYouStyle}>
-        About you
-        <div style={formText} >
-          <div >Your Nickname</div>
-          <input style={textBoxStyle} type="text" id='nickname'/>
-          <div htmlFor="email">Your Email Address</div>
-          <input style={textBoxStyle} type="text" id="email"/>
-        </div >
-        <div>
-          <label htmlFor='purchase_date'>Purchase Date</label>
-          <select id='purchase_date'>
-            <option value='0'></option>
-            <option value='1'>within last month</option>
-            <option value='2'>1-3 months ago</option>
-            <option value='3'>3-6 months ago</option>
-            <option value='4'>6-12 months ago</option>
-            <option value='5'>over 1 year ago</option>
-          </select>
+      <div style={aboutYouContainer}>
+      <div style={aboutYouStyle}>About you</div>
+      <div style={emailFormContainer} >
+            <div style={emailForm}>
+              <div >Your Nickname*</div>
+              <input style={textBoxStyle} type="text" id='nickname'/>
+              <div>Your Email Address*</div>
+              <input style={textBoxStyle} type="text" id="email"/>
+            </div >
+       
+            <div style={purchaseStyle}>
+                  <div>Purchase Date*</div>
+                  <select style={selectStyle} id='purchase_date'>
+                    <option value='0'></option>
+                    <option value='1'>within last month</option>
+                    <option value='2'>1-3 months ago</option>
+                    <option value='3'>3-6 months ago</option>
+                    <option value='4'>6-12 months ago</option>
+                    <option value='5'>over 1 year ago</option>
+                  </select>
+              </div>
         </div>
       </div>
-      <div>
+    <div>
         <button style={buttonStyle}
         onClick = {e => {
           props.close(false);

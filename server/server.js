@@ -41,6 +41,11 @@ app.post('/api/products', (req,res) => {
     } )
 })
 
+app.get('/api/productreview', (req,res) => {
+ // get product id
+ // insert all into product id 
+});
+
 app.get('/api/productrating', (req,res) => {
     // get id
     let id = req.query.id;
