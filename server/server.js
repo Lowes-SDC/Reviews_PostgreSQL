@@ -1,19 +1,19 @@
 const express = require('express')
 const db = require('../db');
 const bodyParser = require('body-parser')
-
+const cors = require('cors')
 
 const app = express();
 const port = 8080;
 /** not sure if the following two lines are needed **/
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
-
+app.use(cors());
 app.use(express.static(__dirname + '/../client/public/'))
 app.listen(port,() => console.log(` Express listening on port ${port}!`))
 
 app.get('/api/randomproduct', (req,res) => {
-    db.getRandomProductId( (err,result) => {
+    db.getRandomProductId((err,result) => {
         if(err) {
             res.send(err)
         } else
@@ -31,6 +31,7 @@ app.get('/api/randomproduct', (req,res) => {
 })
 
 app.post('/api/products', (req,res) => {
+
     db.getProduct('14', (err,result) => {
         if (err) {
             res.send(err)
@@ -43,8 +44,17 @@ app.post('/api/products', (req,res) => {
 
 app.get('/api/productreview', (req,res) => {
  // get product id
+    let id = req.query.id;
+    var r = " get product id = "+id
+    res.send(r);
  // insert all into product id 
 });
+
+app.post('/api/productreview',(req,res)=> {
+    let id = req.body.id;
+    var r = "post product id ="+id;
+    res.send(r);
+})
 
 app.get('/api/productrating', (req,res) => {
     // get id

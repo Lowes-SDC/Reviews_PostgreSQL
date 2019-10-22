@@ -1,5 +1,6 @@
 import React from 'react'
 import buttonStyle from './ButtonStyle'
+import axios from 'axios'
 
 
 const formStyle = {
@@ -129,6 +130,18 @@ const purchaseStyle = {
   flexGrow:'1'
 }
 
+
+const submitReview = (id) => {
+  console.log("submit Review "+id);
+  axios.post('/api/productreview',{id:id})
+  .then(response => { 
+    console.log(response.data);
+  })
+
+}
+
+
+
 const RateForm = (props) => {
     return (
     <div style={mainContainer}>
@@ -201,6 +214,8 @@ const RateForm = (props) => {
         >
           Cancel</button> &nbsp;
         <button style={buttonStyle}
+          onClick={e => {
+            submitReview(props.product.id)}}
         >SUBMIT YOUR REVIEW</button>
       </div>
     </div>
