@@ -132,12 +132,12 @@ const RateForm = (props) => {
       </div>
       <div style={aboutYouStyle}>
         About you
-        <div>
-          <label htmlFor='nickname'>Your Nickname</label>
-          <input type="text" id='nickname'/>
-          <label htmlFor="email">Your Email Address</label>
-          <input type="text" id="email"/>
-        </div>
+        <div style={formText} >
+          <div >Your Nickname</div>
+          <input style={textBoxStyle} type="text" id='nickname'/>
+          <div htmlFor="email">Your Email Address</div>
+          <input style={textBoxStyle} type="text" id="email"/>
+        </div >
         <div>
           <label htmlFor='purchase_date'>Purchase Date</label>
           <select id='purchase_date'>
