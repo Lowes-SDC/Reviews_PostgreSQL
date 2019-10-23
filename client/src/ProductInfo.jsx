@@ -17,7 +17,7 @@ export default function ProductInfo(props) {
 
 const useStyles = makeStyles(theme => ({
     root: {
-        width:'95%',
+        width:'100%',
     },
     multiExpansionPanelSummary: {
         color:'#fff',
