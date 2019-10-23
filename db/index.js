@@ -41,7 +41,7 @@ const getProduct = function(productid,callback) {
 }
 
 const getProductRating = function(productId, callback) {
-    var sql = "SELECT * FROM reviews WHERE product_id = ?"
+    var sql = "SELECT * FROM ratings WHERE product_id = ?"
     var id = [productId]
     sql = mysql.format(sql,id);
     connection.query(sql, (err,results) => {
@@ -55,7 +55,37 @@ const getProductRating = function(productId, callback) {
 
 }
 
-const initializereviews = function(callback) {
+const setProductRating = function(rating,callback) {
+    // add a product rating
+    // use UPDATE
+    var columns = [rating.stars, rating.stars, rating.id];
+    var sql = 'UPDATE ratings SET ?? = ?? + 1 ';
+    sql += 'WHERE product_id = ?'
+    sql = mysql.format(sql,columns);
+    console.log(sql);
+    connection.query(sql, (err, results) => {
+        if (err) {
+            callback(err,null)
+        } else  {
+            callback(null,results)
+        }
+    })
+
+}
+
+const setProductReview = function(reviewObj,callback) {
+    var values = [reviewObj.id, reviewObj.reccomended, reviewObj.purchaseDate,
+    reviewObj.stars, reviewObj.reviewTitle, reviewObj.detailedReview,
+    reviewObj.nickname, reviewObj.email]
+    var sql = 'INSERT into reviews (product_id,recommended,';
+    sql += 'purchaseDate,starsGiven,title,detailed,nickname,email)';
+    sql += 'VALUES ( ?,?,?,?,?,?,?,?)';
+
+    sql = mysql.format(sql,values);
+    console.log(sql);
+}
+
+const initializeRatings= function(callback) {
 
     // DROP TABLE IF EXISTS
     // TODO
@@ -63,7 +93,7 @@ const initializereviews = function(callback) {
 
     // create new random reviews for all products
     var totalItems = 101;
-    var sql = "INSERT INTO reviews (product_id,one_star,two_stars,";
+    var sql = "INSERT INTO ratings (product_id,one_star,two_stars,";
     sql += "three_stars,four_stars,five_stars) "
     sql += 'VALUES '
     for (var i = 1; i<totalItems;i++) {
@@ -89,5 +119,7 @@ module.exports = {
     getRandomProductId,
     getProduct,
     getProductRating,
-    initializereviews
+    initializeRatings,
+    setProductRating,
+    setProductReview
 }

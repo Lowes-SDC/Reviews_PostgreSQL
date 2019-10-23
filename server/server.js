@@ -46,14 +46,23 @@ app.get('/api/productreview', (req,res) => {
  // get product id
     let id = req.query.id;
     var r = " get product id = "+id
+   
     res.send(r);
  // insert all into product id 
 });
 
 app.post('/api/productreview',(req,res)=> {
     let id = req.body.id;
+    console.log('stars ' + req.body.stars )
     var r = "post product id ="+id;
-    res.send(r);
+    db.setProductRating(req.body, (err,result)=> {
+        if (err) {
+            res.send(err)
+        } else {
+            db.setProductReview(req.body);
+            res.send(JSON.stringify(result))
+        }
+    })
 })
 
 app.get('/api/productrating', (req,res) => {

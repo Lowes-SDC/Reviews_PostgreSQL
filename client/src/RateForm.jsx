@@ -131,21 +131,7 @@ const purchaseStyle = {
 }
 
 
-const submitReview = (id) => {
-  console.log("submit Review "+id);
-  // check form elements
-  // id
-  // rating 1 - 5
-  // recommended : boolean
-  // review title
-  // detailed review
 
-  axios.post('/api/productreview',{id:id})
-  .then(response => { 
-    console.log(response.data);
-  })
-
-}
 
 const validateFormInputs = (id) => {
   var obj = {};
@@ -159,25 +145,42 @@ class RateForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-     
         stars:0,
         recommended:null,
         purchaseDate:0,
         reviewTitle:'',
         detailedReview:'',
         nickname:'',
+        email:'',
 
      
     }
     this.handleChange = this.handleChange.bind(this);
     this.recommendHandler = this.recommendHandler.bind(this);
+    this.submitReview = this.submitReview.bind(this)
 
+  }
+
+    submitReview(id){
+    console.log("submit Review "+id);
+    // check form elements
+    // id
+    // rating 1 - 5
+    // recommended : boolean
+    // review title
+    // detailed review
+    
+    let submitObj = this.state;
+    submitObj.id = id;
+    axios.post('/api/productreview',submitObj)
+    .then(response => { 
+      console.log(response.data);
+    })
+  
   }
 
   handleChange(event) {
    var component = event.target.id;
-   console.log('component ' + component );
-   console.log ('value' + event.target.value);
    switch(component) {
     case 'ratingSelector':
       this.setState({stars: event.target.value})
@@ -194,11 +197,9 @@ class RateForm extends Component {
     case 'nickname': 
       this.setState({nickname: event.target.value})
     break;
-    case 'email':({email: event.target.value})
+    case 'email':
       this.setState({email: event.target.value})
     break;
-
-
    }
   }
 
@@ -226,11 +227,11 @@ class RateForm extends Component {
                 <select id="ratingSelector" style={selectStyle} 
                 value={this.state.stars}  onChange={this.handleChange}>
                   <option value='0'>Select Rating</option>
-                  <option value='1'>1 Star</option>
-                  <option value='2'>2 Stars</option>
-                  <option value='3'>3 Stars</option>
-                  <option value='4'>4 Stars</option>
-                  <option value='5'>5 Stars</option>
+                  <option value='one_star'>1 Star</option>
+                  <option value='two_stars'>2 Stars</option>
+                  <option value='three_stars'>3 Stars</option>
+                  <option value='four_stars'>4 Stars</option>
+                  <option value='five_stars'>5 Stars</option>
                 </select>
               </div>
             </div>
@@ -260,15 +261,20 @@ class RateForm extends Component {
       <div style={emailFormContainer} >
             <div style={emailForm}>
               <div >Your Nickname*</div>
-              <input style={textBoxStyle} type="text" id='nickname'/>
+              <input style={textBoxStyle} 
+              type="text" id='nickname' value={this.state.nickname} 
+              onChange={this.handleChange}/>
               <div>Your Email Address*</div>
-              <input style={textBoxStyle} type="text" id="email"/>
+              <input style={textBoxStyle} value={this.state.email}
+              onChange={this.handleChange}
+              type="text" id="email"/>
             </div >
        
             <div style={purchaseStyle}>
                   <div>Purchase Date*</div>
                   <select style={selectStyle} 
                   value={this.props.purchaseDate} 
+                  onChange={this.handleChange}
                   id='purchase_date'>
                     <option value='0'></option>
                     <option value='1'>within last month</option>
@@ -289,7 +295,7 @@ class RateForm extends Component {
               Cancel</button> &nbsp;
             <button style={buttonStyle}
               onClick={e => {
-                submitReview(this.props.product.id)}}
+                this.submitReview(this.props.product.id)}}
             >SUBMIT YOUR REVIEW</button>
           </div>
         </div>
