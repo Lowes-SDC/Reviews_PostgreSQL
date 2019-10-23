@@ -1,0 +1,126 @@
+const formStyle = {
+  padding:'20px',
+  fontFamily: 'Helvetica,Arial,sans-serif',
+  display:'flex',
+  
+}
+const formText = {
+  display:'block',
+  fontSize:'14px',
+ 
+}
+const picture = {
+  
+}
+
+const aboutYouContainer = {
+  color: '#999! important',
+  backgroundColor: '#F2F2F2',
+  padding:'20px',
+  fontWeight:'700',
+  fontSize:'14px',
+ 
+}
+
+const aboutYouStyle = {
+  fontSize:  '1.3rem',
+  paddingBottom: '10px',
+  fontWeight: '700',
+  color: '#333',
+  display: 'flex',
+  flexDirection:'column'
+}
+
+const textBoxStyle = {
+  height:'44px',
+  fontSize:'1rem',
+  backgroundColor:'#FFF',
+  backgroundImage:'none',
+  border:'1px solid #CCC',
+  boxSizing:'border-box',
+  padding:'0 0 0 10px',
+  width: '100%'
+}
+
+const textAreaStyle = {
+  fontSize:'1rem',
+  backgroundColor:'#FFF',
+  backgroundImage:'none',
+  border:'1px solid #CCC',
+  boxSizing:'border-box',
+  padding:'0 0 0 10px',
+  width: '100%'
+}
+
+
+
+const ratingDiv = {
+  paddingRight:'10px'
+}
+
+
+const selectStyle = {
+  fontFamily: 'Helvetica,Arial,sans-serif',
+  width:'80%',
+  height:'44px',
+  backgroundColor:'#FFF',
+  border: '1px solid #CCC',
+  borderRadius: '0',
+  boxSizing:'border-box',
+  backgroundImage:'none',
+  padding: '0 0 0 10px',
+  color:'#000'
+}
+
+const divColumn = {
+  width:'100%',
+  flexGrow: '1'
+}
+const mainTitle = {
+  fontFamily: 'Helvetica,Arial,sans-serif',
+  fontWeight: '400'
+}
+
+const subtitle = {
+  paddingTop:'5px',
+  paddingRight:'20px',
+  paddingBottom:'5px',
+  fontWeight:'700',
+  fontSize:'14px',
+}
+const mainContainer = {
+  padding:'20px',
+  fontFamily: 'Helvetica,Arial,sans-serif',
+}
+
+const emailFormContainer = {
+  display:'flex',
+  flexDirection:'row',
+  width:'100%'
+}
+const titleStyle = {
+  padding:'20px',
+  width:'100%',
+  fontSize: '1.6rem'
+}
+const reviewDiv = {
+  paddingTop:'20px',
+  display:'flex',
+  flexDirection:'row',
+  fontSize:'14px',
+  fontWeight:'700',
+  marginBottom: '5px',
+  width:'100%'
+  
+}
+const emailForm = {
+  width:'100%',
+  flexGrow:'2',
+}
+
+const purchaseStyle = {
+  paddingTop:'5px',
+  paddingLeft:'30px',
+  width:'100%',
+  flexGrow:'1'
+}

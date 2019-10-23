@@ -133,6 +133,13 @@ const purchaseStyle = {
 
 const submitReview = (id) => {
   console.log("submit Review "+id);
+  // check form elements
+  // id
+  // rating 1 - 5
+  // recommended : boolean
+  // review title
+  // detailed review
+
   axios.post('/api/productreview',{id:id})
   .then(response => { 
     console.log(response.data);
@@ -140,7 +147,13 @@ const submitReview = (id) => {
 
 }
 
+const validateFormInputs = (id) => {
+  var obj = {};
+  obj.id = id;
+  // rating
 
+  return obj;
+}
 
 const RateForm = (props) => {
     return (
