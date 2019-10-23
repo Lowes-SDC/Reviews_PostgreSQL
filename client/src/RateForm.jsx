@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import buttonStyle from './ButtonStyle'
 import axios from 'axios'
 
@@ -155,21 +155,76 @@ const validateFormInputs = (id) => {
   return obj;
 }
 
-const RateForm = (props) => {
+class RateForm extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+     
+        stars:0,
+        recommended:null,
+        purchaseDate:0,
+        reviewTitle:'',
+        detailedReview:'',
+        nickname:'',
+
+     
+    }
+    this.handleChange = this.handleChange.bind(this);
+    this.recommendHandler = this.recommendHandler.bind(this);
+
+  }
+
+  handleChange(event) {
+   var component = event.target.id;
+   console.log('component ' + component );
+   console.log ('value' + event.target.value);
+   switch(component) {
+    case 'ratingSelector':
+      this.setState({stars: event.target.value})
+    break;
+     case 'purchase_date' :
+       this.setState({purchaseDate: event.target.value});
+    break;
+    case 'review_title' : 
+      this.setState({reviewTitle: event.target.value});
+    break;
+    case 'detailed_review':
+      this.setState({detailedReview: event.target.value})
+    break;
+    case 'nickname': 
+      this.setState({nickname: event.target.value})
+    break;
+    case 'email':({email: event.target.value})
+      this.setState({email: event.target.value})
+    break;
+
+
+   }
+  }
+
+  recommendHandler(event) {
+    var value = event.target.value;
+    console.log("value " +value);
+  }
+  
+
+ 
+    render() {
     return (
     <div style={mainContainer}>
      <div style={mainTitle}>Write a Review</div>
       <div style={formStyle}>
         <div style={picture}>
-          <img src={props.product.url} width='190px' />
+          <img src={this.props.product.url} width='190px' />
         </div>
         <div style={titleStyle} >
-            {props.product.name}
+            {this.props.product.name}
           <div style={reviewDiv}>
             <div style={divColumn}>
               <div style={subtitle}>Overall Rating*</div>
               <div style={ratingDiv} >
-                <select id="ratingSelector" style={selectStyle}>
+                <select id="ratingSelector" style={selectStyle} 
+                value={this.state.stars}  onChange={this.handleChange}>
                   <option value='0'>Select Rating</option>
                   <option value='1'>1 Star</option>
                   <option value='2'>2 Stars</option>
@@ -181,20 +236,24 @@ const RateForm = (props) => {
             </div>
               <div style={divColumn}>
                 <div style={subtitle}> Would you recommend this product to a friend?</div>
-                <button style={buttonStyle}>Yes</button>
+                <button style={buttonStyle} value='true' onClick={this.recommendHandler}>Yes</button>
                   &nbsp;
-                <button style={buttonStyle}>No</button>
+                <button style={buttonStyle} value='false' onClick={this.recommendHandler}>No</button>
               </div >
           </div>
         </div>
       </div>
       <div style={formText}>
         <div style={subtitle}> Review Title </div>
-        <input style={textBoxStyle} type ='text' id='review_title'/>
+        <input style={textBoxStyle} value={this.state.reviewTitle}
+        type ='text' id='review_title' onChange={this.handleChange}/>
       </div>
       <div>
-        <div style={subtitle} > Detailed Review</div>
-        <textarea rows='6' style={textAreaStyle} id='detailed_review'></textarea>
+        <div style={subtitle}> Detailed Review</div>
+        <textarea rows='6' style={textAreaStyle} 
+        value={this.state.detailedReview}
+        onChange={this.handleChange}
+        id='detailed_review'></textarea>
       </div>
       <div style={aboutYouContainer}>
       <div style={aboutYouStyle}>About you</div>
@@ -208,7 +267,9 @@ const RateForm = (props) => {
        
             <div style={purchaseStyle}>
                   <div>Purchase Date*</div>
-                  <select style={selectStyle} id='purchase_date'>
+                  <select style={selectStyle} 
+                  value={this.props.purchaseDate} 
+                  id='purchase_date'>
                     <option value='0'></option>
                     <option value='1'>within last month</option>
                     <option value='2'>1-3 months ago</option>
@@ -219,21 +280,21 @@ const RateForm = (props) => {
               </div>
         </div>
       </div>
-    <div>
-        <button style={buttonStyle}
-        onClick = {e => {
-          props.close(false);
-        }}
-        >
-          Cancel</button> &nbsp;
-        <button style={buttonStyle}
-          onClick={e => {
-            submitReview(props.product.id)}}
-        >SUBMIT YOUR REVIEW</button>
-      </div>
-    </div>
+        <div>
+            <button style={buttonStyle}
+            onClick = {e => {
+              this.props.close(false);
+            }}
+            >
+              Cancel</button> &nbsp;
+            <button style={buttonStyle}
+              onClick={e => {
+                submitReview(this.props.product.id)}}
+            >SUBMIT YOUR REVIEW</button>
+          </div>
+        </div>
 
-    )
+      )}
 
 
 }

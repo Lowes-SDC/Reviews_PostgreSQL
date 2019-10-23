@@ -1,19 +1,17 @@
-const formStyle = {
+formStyle {
   padding:'20px',
   fontFamily: 'Helvetica,Arial,sans-serif',
   display:'flex',
   
 }
-const formText = {
+formText {
   display:'block',
   fontSize:'14px',
  
 }
-const picture = {
-  
-}
 
-const aboutYouContainer = {
+
+aboutYouContainer{
   color: '#999! important',
   backgroundColor: '#F2F2F2',
   padding:'20px',
@@ -22,7 +20,7 @@ const aboutYouContainer = {
  
 }
 
-const aboutYouStyle = {
+aboutYouStyle {
   fontSize:  '1.3rem',
   paddingBottom: '10px',
   fontWeight: '700',
@@ -31,7 +29,7 @@ const aboutYouStyle = {
   flexDirection:'column'
 }
 
-const textBoxStyle = {
+textBoxStyle  {
   height:'44px',
   fontSize:'1rem',
   backgroundColor:'#FFF',
@@ -42,7 +40,7 @@ const textBoxStyle = {
   width: '100%'
 }
 
-const textAreaStyle = {
+textAreaStyle{
   fontSize:'1rem',
   backgroundColor:'#FFF',
   backgroundImage:'none',
@@ -54,12 +52,12 @@ const textAreaStyle = {
 
 
 
-const ratingDiv = {
+ratingDiv {
   paddingRight:'10px'
 }
 
 
-const selectStyle = {
+selectStyle {
   fontFamily: 'Helvetica,Arial,sans-serif',
   width:'80%',
   height:'44px',
@@ -72,7 +70,7 @@ const selectStyle = {
   color:'#000'
 }
 
-const divColumn = {
+divColumn = {
   width:'100%',
   flexGrow: '1'
 }
