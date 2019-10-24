@@ -27,8 +27,9 @@ const getRandomProductId = function(callback) {
 
 const getProduct = function(productid,callback) {
     var sql = "SELECT * FROM products WHERE id = ?"
-    var id = [productid]
+    var id = [productid];
     sql = mysql.format(sql,id);
+    console.log(sql);
     connection.query(sql, (err,results) => {
         if (err) {
             callback(err,null)
@@ -74,7 +75,7 @@ const setProductRating = function(rating,callback) {
 }
 
 const setProductReview = function(reviewObj,callback) {
-    var values = [reviewObj.id, reviewObj.reccomended, reviewObj.purchaseDate,
+    var values = [reviewObj.id, reviewObj.recommended, reviewObj.purchaseDate,
     reviewObj.stars, reviewObj.reviewTitle, reviewObj.detailedReview,
     reviewObj.nickname, reviewObj.email]
     var sql = 'INSERT into reviews (product_id,recommended,';
@@ -82,6 +83,7 @@ const setProductReview = function(reviewObj,callback) {
     sql += 'VALUES ( ?,?,?,?,?,?,?,?)';
 
     sql = mysql.format(sql,values);
+    console.log(sql);
     connection.query(sql, (err,results) => {
         if (err) {
             callback(err,null)
@@ -91,6 +93,19 @@ const setProductReview = function(reviewObj,callback) {
     })
 }
 
+const getProductReviews = function(id,callback) {
+    var pid = [id];
+    var sql = 'SELECT * from reviews WHERE product_id = ?';
+    sql = mysql.format(sql, pid);
+    connection.query(sql, (err,results) => {
+        if (err) {
+            callback(err,null)
+        } else  {
+            console.log(results);
+            callback(null,results);
+        }
+    })
+}
 const initializeRatings= function(callback) {
 
     // DROP TABLE IF EXISTS
@@ -127,5 +142,6 @@ module.exports = {
     getProductRating,
     initializeRatings,
     setProductRating,
-    setProductReview
+    setProductReview,
+    getProductReviews
 }

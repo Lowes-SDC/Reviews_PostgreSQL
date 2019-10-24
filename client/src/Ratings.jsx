@@ -52,6 +52,7 @@ class Ratings extends Component {
       starAverage: 0,
       percents: {},
       drawerOpen:false,
+      reviews:0
     }
     this.toggleDrawer = this.toggleDrawer.bind(this)
   }
@@ -106,26 +107,27 @@ class Ratings extends Component {
 
   render() {
     return(
-      <div style={ratingStyle}>
-        <div style={RatingsContainerStyle}>
-          <Recommendations />
-        </div>
-        <div style={StarsContainerStyle}>
-            <StarsRating stars={this.state.stars} totalVotes={this.state.rating.totalVotes}/>
-        </div>
-        <div style={BarRatingsStyle}>
-            <BarRatings rating={this.state.rating} percents={this.state.percents}/>
-        </div>
-        <div style={ReviewsStyle}>
-          <WriteReview show={this.toggleDrawer} />
-        </div>
-        <Drawer anchor='bottom' open={this.state.drawerOpen} >
-          <div>
-            <RateForm product={this.props.product} close={this.toggleDrawer}/>
+      <div>
+        Rating Summary {this.state.reviews}
+        <div style={ratingStyle}>
+          <div style={RatingsContainerStyle}>
+            <Recommendations />
           </div>
-
-        </Drawer>
-
+          <div style={StarsContainerStyle}>
+              <StarsRating stars={this.state.stars} totalVotes={this.state.rating.totalVotes}/>
+          </div>
+          <div style={BarRatingsStyle}>
+              <BarRatings rating={this.state.rating} percents={this.state.percents}/>
+          </div>
+          <div style={ReviewsStyle}>
+            <WriteReview show={this.toggleDrawer} />
+          </div>
+          <Drawer anchor='bottom' open={this.state.drawerOpen} >
+            <div>
+              <RateForm product={this.props.product} close={this.toggleDrawer}/>
+            </div>
+          </Drawer>
+        </div>
       </div>
     )
   }

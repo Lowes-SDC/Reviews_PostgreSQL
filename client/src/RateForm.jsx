@@ -175,6 +175,19 @@ class RateForm extends Component {
     axios.post('/api/productreview',submitObj)
     .then(response => { 
       console.log(response.data);
+      // refresh state
+      // refresh reviews
+      // remove form
+      this.setState({
+        stars:0,
+        recommended:null,
+        purchaseDate:0,
+        reviewTitle:'',
+        detailedReview:'',
+        nickname:'',
+        email:'',
+      })
+      this.props.close(false);
     })
   
   }
@@ -205,7 +218,8 @@ class RateForm extends Component {
 
   recommendHandler(event) {
     var value = event.target.value;
-    console.log("value " +value);
+    this.setState({recommended:value})
+   
   }
   
 

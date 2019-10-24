@@ -59,8 +59,15 @@ app.post('/api/productreview',(req,res)=> {
         if (err) {
             res.send(err)
         } else {
-            db.setProductReview(req.body);
-            res.send(JSON.stringify(result))
+            db.setProductReview(req.body,(err,result)=> {
+                if (err) {
+                    res.send(err)
+                } else
+                {
+                    res.send(JSON.stringify(result))
+                }
+            });
+          
         }
     })
 })
@@ -68,12 +75,23 @@ app.post('/api/productreview',(req,res)=> {
 app.get('/api/productrating', (req,res) => {
     // get id
     let id = req.query.id;
-    db.getProductRating(id, (err,result) => {
+    db.getProductRating(id, (err,rating) => {
         if (err) {
             res.send(err);
         } else
         {
-            res.send(JSON.stringify(result));
+            // get product reviews
+            db.getProductReviews(id, (err, reviews) => {
+                if (err) {
+                    res.send(err);
+                } else 
+                {
+                 reviews.ratings = rating;
+                 res.send(JSON.stringify(reviews)); 
+                }
+            })
+            
+            
         }
     })
 })
