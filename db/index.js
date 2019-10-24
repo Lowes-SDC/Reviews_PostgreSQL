@@ -82,7 +82,13 @@ const setProductReview = function(reviewObj,callback) {
     sql += 'VALUES ( ?,?,?,?,?,?,?,?)';
 
     sql = mysql.format(sql,values);
-    console.log(sql);
+    connection.query(sql, (err,results) => {
+        if (err) {
+            callback(err,null)
+        } else  {
+            callback(null,results);
+        }
+    })
 }
 
 const initializeRatings= function(callback) {
