@@ -16,6 +16,7 @@
   lineHeight:'44px',
   textAlign:'center',
   verticalAlign:'middle',
+  margin: '0 5px'
  }
 
  export default ButtonStyle;

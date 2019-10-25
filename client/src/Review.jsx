@@ -10,12 +10,15 @@ const NickNameStyle = {
     fontWeight:'700',
     fontSize:'14px'
 }
+const ButtonCont = {
+    paddingLeft:'5px'
+}
 
 const reviewContainer = {
     width:'100',
     display:'flex',
-    flexDirection:'column',
-    flexFlow: 'column wrap',
+    flexDirection:'row',
+    flexFlow: 'row wrap',
     padding:'10px',
     
 }
@@ -25,8 +28,8 @@ const reviewInfo = {
     flexGrow:'1'
 }
 const reviewStyle = {
-    paddingRight: '20px',
-    flexGrow:'2',
+    flexGrow:'1',
+    width:'50%'
 
 }
 const Review = (props) => {
@@ -41,7 +44,7 @@ const Review = (props) => {
             <div style={reviewInfo}>
                 <div style={NickNameStyle}>{props.data.nickname}</div>
                 <div>Was this review hurtful?</div>
-                <div>
+                <div style={ButtonCont}>
                     <button style={buttonStyle}>YES</button>
                     <button style={buttonStyle}>NO</button>
                 </div>
