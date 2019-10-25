@@ -178,16 +178,8 @@ class RateForm extends Component {
       // refresh state
       // refresh reviews
       // remove form
-      this.setState({
-        stars:0,
-        recommended:null,
-        purchaseDate:0,
-        reviewTitle:'',
-        detailedReview:'',
-        nickname:'',
-        email:'',
-      })
-      this.props.close(false);
+      this.props.onSubmitForm();
+      this.closeForm();
     })
   
   }
@@ -214,6 +206,19 @@ class RateForm extends Component {
       this.setState({email: event.target.value})
     break;
    }
+  }
+
+  closeForm() {
+    this.setState({
+      stars:0,
+      recommended:null,
+      purchaseDate:0,
+      reviewTitle:'',
+      detailedReview:'',
+      nickname:'',
+      email:'',
+    })
+    this.props.close(false);
   }
 
   recommendHandler(event) {
@@ -303,7 +308,7 @@ class RateForm extends Component {
         <div>
             <button style={buttonStyle}
             onClick = {e => {
-              this.props.close(false);
+              this.closeForm();
             }}
             >
               Cancel</button> &nbsp;

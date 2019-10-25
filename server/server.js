@@ -86,8 +86,10 @@ app.get('/api/productrating', (req,res) => {
                     res.send(err);
                 } else 
                 {
-                 reviews.ratings = rating;
-                 res.send(JSON.stringify(reviews)); 
+                 var ro = {};
+                 ro.reviews = reviews;
+                 ro.ratings = rating;
+                 res.send(JSON.stringify(ro)); 
                 }
             })
             

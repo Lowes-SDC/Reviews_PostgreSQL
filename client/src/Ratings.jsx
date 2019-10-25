@@ -6,6 +6,7 @@ import Recommendations  from './Recommendations'
 import WriteReview from './WriteReview'
 import Drawer from '@material-ui/core/drawer'
 import RateForm from './RateForm'
+import Review from './Review'
 
 const ratingStyle = {
     width:'100%',
@@ -52,13 +53,22 @@ class Ratings extends Component {
       starAverage: 0,
       percents: {},
       drawerOpen:false,
-      reviews:0
+      totalReviews:0,
+      reviews:[],
+      message:'',
     }
     this.toggleDrawer = this.toggleDrawer.bind(this)
+    this.update = this.update.bind(this);
   }
 
   toggleDrawer(open) {
     this.setState({drawerOpen:open})
+  }
+  update() {
+    axios.get('/api/productrating', { 
+      params:{id:this.props.product.id}
+    })
+    .then(response => this.setReviews(response))
   }
 
   componentDidUpdate(prevProps) {
@@ -69,17 +79,31 @@ class Ratings extends Component {
           id: this.props.product.id
         }
       })
-      .then(response => {
-        let result = response.data[0];
-        result.totalVotes = result.one_star + result.two_stars + result.three_stars + result.four_stars + result.five_stars;
-        this.setState({
-          rating:result,
-          stars: this.calculateStarAverage(result),
-          percents: this.calculatePercents(result)
-        })
-      })
-    }
+      .then(response => this.setReviews(response))
   }
+}
+
+  setReviews(response) {
+    let result = response.data;
+    let ratings = result.ratings[0];
+    ratings.totalVotes = ratings.one_star + ratings.two_stars + ratings.three_stars + ratings.four_stars + ratings.five_stars;
+    
+    if (result.reviews.length === 0 ) {
+      this.setState({
+         message:'Have an opinion? Help others decide how horrible this product is.',
+
+    })
+    }
+
+    this.setState({
+      rating:result,
+      totalReviews:result.reviews.length,
+      reviews:result.reviews,
+      stars: this.calculateStarAverage(ratings),
+      percents: this.calculatePercents(ratings),
+    })
+  }
+
   calculateStarAverage(stars) {
     let weighted = stars.one_star * 1;
     weighted += stars.two_stars * 2;
@@ -106,30 +130,56 @@ class Ratings extends Component {
   }
 
   render() {
-    return(
-      <div>
-        Rating Summary {this.state.reviews}
+    if (this.state.totalReviews === 0) {
+      return (
         <div style={ratingStyle}>
-          <div style={RatingsContainerStyle}>
-            <Recommendations />
+          <div>
+            <div>No Reviews **</div>
+             <div>{this.state.message}</div>
+           </div>
+            <div style={ReviewsStyle}>
+                <WriteReview show={this.toggleDrawer} />
+              </div>
+                 <Drawer anchor='bottom' open={this.state.drawerOpen} >
+                <div>
+                  <RateForm product={this.props.product} close={this.toggleDrawer} onSubmitForm={this.update}/>
+               </div>
+               </Drawer>
           </div>
-          <div style={StarsContainerStyle}>
-              <StarsRating stars={this.state.stars} totalVotes={this.state.rating.totalVotes}/>
-          </div>
-          <div style={BarRatingsStyle}>
-              <BarRatings rating={this.state.rating} percents={this.state.percents}/>
-          </div>
-          <div style={ReviewsStyle}>
-            <WriteReview show={this.toggleDrawer} />
-          </div>
-          <Drawer anchor='bottom' open={this.state.drawerOpen} >
-            <div>
-              <RateForm product={this.props.product} close={this.toggleDrawer}/>
+        )
+    } else {
+    return(
+        <div style={ratingStyle}>
+          Rating Summary {this.state.totalReviews > 1 ? '( '+this.state.totalReviews+' REVIEWS)' : '('+this.state.totalReviews+' REVIEW)' }
+          <div style={ratingStyle}>
+            <div style={RatingsContainerStyle}>
+              <Recommendations />
             </div>
-          </Drawer>
-        </div>
-      </div>
-    )
+            <div style={StarsContainerStyle}>
+                <StarsRating stars={this.state.stars} totalVotes={this.state.rating.totalVotes}/>
+            </div>
+            <div style={BarRatingsStyle}>
+                <BarRatings rating={this.state.rating} percents={this.state.percents}/>
+            </div>
+            <div style={ReviewsStyle}>
+              <WriteReview show={this.toggleDrawer} />
+            </div>
+          </div>
+          <div>
+          {this.state.reviews.map((review,i) => 
+            <Review data={review} key={i} />
+            )}
+          </div>
+            <Drawer anchor='bottom' open={this.state.drawerOpen} >
+              <div>
+                <RateForm product={this.props.product} close={this.toggleDrawer} onSubmitForm={this.update}/>
+              </div>
+            </Drawer>
+           
+          </div>
+        
+      )
+    }
   }
 }
 export default Ratings

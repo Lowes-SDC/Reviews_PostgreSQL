@@ -101,7 +101,9 @@ const getProductReviews = function(id,callback) {
         if (err) {
             callback(err,null)
         } else  {
-            console.log(results);
+           if (results.length < 1) {
+               results = [];
+           }
             callback(null,results);
         }
     })
@@ -113,11 +115,11 @@ const initializeRatings= function(callback) {
     // CREATE TABLE
 
     // create new random reviews for all products
-    var totalItems = 101;
+    var totalItems = 100;
     var sql = "INSERT INTO ratings (product_id,one_star,two_stars,";
     sql += "three_stars,four_stars,five_stars) "
     sql += 'VALUES '
-    for (var i = 1; i<totalItems;i++) {
+    for (var i = 0; i<totalItems;i++) {
         sql += '('+i+','+randomvotes()+','+randomvotes()+',';
         sql += randomvotes()+','+randomvotes()+','+randomvotes()+')'
         if (i <totalItems-1) sql += ','

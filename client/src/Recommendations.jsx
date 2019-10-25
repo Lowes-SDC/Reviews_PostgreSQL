@@ -1,6 +1,10 @@
 import React from 'react'
 
 const Recomendations = (props) => {
+  let stars = props.stars;
+  switch (stars) {
+
+  }
 
   return(
     <div>
