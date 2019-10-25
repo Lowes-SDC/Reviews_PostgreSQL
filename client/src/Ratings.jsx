@@ -7,6 +7,7 @@ import WriteReview from './WriteReview'
 import Drawer from '@material-ui/core/drawer'
 import RateForm from './RateForm'
 import Review from './Review'
+import server from './serverConfig'
 
 const ratingStyle = {
     width:'100%',
@@ -90,7 +91,7 @@ class Ratings extends Component {
     this.setState({drawerOpen:open})
   }
   update() {
-    axios.get('/api/productrating', { 
+    axios.get(server+'/api/productrating', { 
       params:{id:this.props.product.id}
     })
     .then(response => this.setReviews(response))
@@ -99,7 +100,7 @@ class Ratings extends Component {
   componentDidUpdate(prevProps) {
     // get rating for current product
     if (this.props.product !== prevProps.product) {
-      axios.get('/api/productrating', {
+      axios.get(server+'/api/productrating', {
         params: {
           id: this.props.product.id
         }

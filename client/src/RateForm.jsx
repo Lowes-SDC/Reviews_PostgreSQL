@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import buttonStyle from './ButtonStyle'
 import axios from 'axios'
+import server from './serverConfig'
 
 
 const formStyle = {
@@ -172,7 +173,7 @@ class RateForm extends Component {
     
     let submitObj = this.state;
     submitObj.id = id;
-    axios.post('/api/productreview',submitObj)
+    axios.post(server+'/api/productreview',submitObj)
     .then(response => { 
       console.log(response.data);
       // refresh state

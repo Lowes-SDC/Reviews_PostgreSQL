@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import ProductInfo from './ProductInfo.jsx'
 import axios from 'axios'
+import server from './serverConfig'
 
 class ProductInfoMain extends Component {
     constructor(props) {
@@ -13,7 +14,7 @@ class ProductInfoMain extends Component {
 
     componentDidMount() {
         // get a randomProduct to pass to our component
-        axios.get('/api/randomproduct')
+        axios.get(server+'/api/randomproduct')
         .then(response => {
             this.setState({
                selectedProduct:response.data

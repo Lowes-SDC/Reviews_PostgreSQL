@@ -39,6 +39,14 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
+const MainTitle = {
+    fontFamily: 'Helvetica,Arial,sans-serif',
+    fontSize: '28px',
+    fontWeight:'400',
+    color:'#333',
+    textAlign:'center'
+}
+
 
 const classes = useStyles();
 
@@ -46,6 +54,7 @@ const classes = useStyles();
 
     return (
         <div className={classes.root}>
+            <div style={MainTitle}>Product Information</div>
            <ExpansionPanel  >
                <ExpansionPanelSummary
                className ={classes.multiExpansionPanelSummary}
@@ -54,8 +63,6 @@ const classes = useStyles();
                id="panel1a-header">
                     <Info />
                    <Typography className={classes.heading}>&nbsp;&nbsp;&nbsp;Description</Typography>
-
-
                </ExpansionPanelSummary>
                <ExpansionPanelDetails>
                <Typography className={classes.secondaryHeading}>{props.data.name} </Typography>
