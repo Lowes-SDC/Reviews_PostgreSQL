@@ -15,6 +15,19 @@ const ratingStyle = {
     flexFlow: 'row wrap',
     justifyContent: 'space-around'
 }
+const ReviewStyle = {
+  width:'100%',
+  display:'flex',
+  flexDirection:'row',
+  flexFlow: 'row wrap',
+  justifyContent: 'space-around',
+  paddingTop:'10px',
+}
+const ReviewMainStyle = {
+  width:'100%',
+  display: 'flex',
+  flexFlow:'column'
+}
 
 const StarsContainerStyle = {
   paddingTop: '40px',
@@ -30,6 +43,18 @@ const RatingsContainerStyle = {
   textAlign:'center',
   backgroundColor:'#eaeaea'
 
+}
+const ReviewContainer = {
+  fontSize:'16px',
+  flexGrow:'2' 
+}
+const ReviewSubHeader = {
+  fontFamily:'Helvetica,Arial,sans-serif',
+  fontWeight:'700',
+  color:'#000',
+  width:'100%',
+  textAlign:'left'
+  
 }
 
 const BarRatingsStyle = {
@@ -132,12 +157,12 @@ class Ratings extends Component {
   render() {
     if (this.state.totalReviews === 0) {
       return (
-        <div style={ratingStyle}>
-          <div>
-            <div>No Reviews **</div>
-             <div>{this.state.message}</div>
-           </div>
-            <div style={ReviewsStyle}>
+        <div style={ReviewStyle}>
+          <div style={ReviewContainer} >
+            <div style={ReviewSubHeader}>No Reviews **</div>
+            <div>{this.state.message}</div>
+          </div>
+            <div>
                 <WriteReview show={this.toggleDrawer} />
               </div>
                  <Drawer anchor='bottom' open={this.state.drawerOpen} >
@@ -150,7 +175,8 @@ class Ratings extends Component {
     } else {
     return(
         <div style={ratingStyle}>
-          Rating Summary {this.state.totalReviews > 1 ? '( '+this.state.totalReviews+' REVIEWS)' : '('+this.state.totalReviews+' REVIEW)' }
+          <div style={ReviewSubHeader}>Ratings Summary {this.state.totalReviews > 1 ? '( '+this.state.totalReviews+' REVIEWS)' : '('+this.state.totalReviews+' REVIEW)' }
+          </div>
           <div style={ratingStyle}>
             <div style={RatingsContainerStyle}>
               <Recommendations />
@@ -165,7 +191,7 @@ class Ratings extends Component {
               <WriteReview show={this.toggleDrawer} />
             </div>
           </div>
-          <div>
+          <div style={ReviewMainStyle}>
           {this.state.reviews.map((review,i) => 
             <Review data={review} key={i} />
             )}

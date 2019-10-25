@@ -1,5 +1,6 @@
 import React from 'react'
 import StarIcon from '@material-ui/icons/Star';
+import StarBorder from '@material-ui/icons/StarBorder';
 
 const StarsRatingStyle = {
     width:'100%',
@@ -32,8 +33,12 @@ const Stars = (props) => {
          break;
     }
     let starDivs = [];
-    for (let i=0; i<stars; i++) {
+    for (let i=0; i<5; i++) {
+      if (i <= stars) {
         starDivs.push(<StarIcon key={i}/>)
+      } else  {
+        starDivs.push(<StarBorder key={i}/>)
+      }
     }
     
     return(

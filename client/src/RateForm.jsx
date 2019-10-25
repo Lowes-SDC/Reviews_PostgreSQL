@@ -230,12 +230,18 @@ class RateForm extends Component {
 
  
     render() {
+      let url = this.props.product.url;
+      if (url.indexOf(',') !== -1) {
+        url = url.substring(0,url.indexOf(','));
+        console.log(url);
+       
+      } 
     return (
     <div style={mainContainer}>
      <div style={mainTitle}>Write a Review</div>
       <div style={formStyle}>
         <div style={picture}>
-          <img src={this.props.product.url} width='190px' />
+          <img src={url} width='190px' />
         </div>
         <div style={titleStyle} >
             {this.props.product.name}
