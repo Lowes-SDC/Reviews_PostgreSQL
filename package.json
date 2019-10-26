@@ -28,7 +28,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server/server.js",
-    "start-dev": "webpack -d --watch & live-server --port=3030 --watch=client/public --open=client/public"
+    "start-dev": "webpack -p --watch & live-server --port=3030 --watch=client/public --open=client/public"
   },
   "repository": {
     "type": "git",
