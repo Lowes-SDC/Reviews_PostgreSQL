@@ -10,6 +10,7 @@ import Info from '@material-ui/icons/InfoOutlined'
 import StarIcon from '@material-ui/icons/StarBorder'
 import QA from '@material-ui/icons/QuestionAnswerOutlined'
 import Specs from '@material-ui/icons/LibraryBooksRounded';
+import Description from './Description'
 
 //StarHalf
 
@@ -65,10 +66,12 @@ const classes = useStyles();
                    <Typography className={classes.heading}>&nbsp;&nbsp;&nbsp;Description</Typography>
                </ExpansionPanelSummary>
                <ExpansionPanelDetails>
-               <Typography className={classes.secondaryHeading}>{props.data.name} </Typography>
+               {/** <Typography className={classes.secondaryHeading}>{props.data.name} </Typography>
                 <Typography>
                          {props.data.description}
-                    </Typography>
+                    </Typography>  */
+                }
+                    <Description product={props.data} />
                </ExpansionPanelDetails>
         </ExpansionPanel>
            <ExpansionPanel >
