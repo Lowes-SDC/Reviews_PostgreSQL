@@ -33,7 +33,7 @@ const Description = (props) => {
          <div style={DescChild}>{props.product.name}</div>
          <div style={DescChild}>
                 {descriptions.map((desc, i) => 
-                    <div key={i}> &bull; {desc}</div>
+                    <div className='bulletpoint' key={i}> &bull; {desc}</div>
                 )}
         </div>
      </div>
