@@ -128,6 +128,13 @@ class Ratings extends Component {
       stars: this.calculateStarAverage(ratings),
       percents: this.calculatePercents(ratings),
     })
+    // send custom event 
+    var ce = new CustomEvent('ratings', { detail:
+      {
+        average: this.state.stars
+      }
+    })
+    window.dispatchEvent(ce);
   }
 
   calculateStarAverage(stars) {

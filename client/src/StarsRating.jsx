@@ -34,7 +34,7 @@ const StarsRating = (props) => {
         <div>
           {divs}
         </div>
-      {props.stars} average
+          {props.stars} average
       </div>
     </div>
   )

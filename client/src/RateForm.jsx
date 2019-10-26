@@ -252,12 +252,12 @@ class RateForm extends Component {
               <div style={ratingDiv} >
                 <select id="ratingSelector" style={selectStyle} 
                 value={this.state.stars}  onChange={this.handleChange}>
-                  <option value='0'>Select Rating</option>
-                  <option value='one_star'>1 Star</option>
-                  <option value='two_stars'>2 Stars</option>
-                  <option value='three_stars'>3 Stars</option>
-                  <option value='four_stars'>4 Stars</option>
-                  <option value='five_stars'>5 Stars</option>
+                  <option data='0' value='0'>Select Rating</option>
+                  <option data='1' value='one_star'>1 Star</option>
+                  <option data='2' value='two_stars'>2 Stars</option>
+                  <option data='3' value='three_stars'>3 Stars</option>
+                  <option data='4' value='four_stars'>4 Stars</option>
+                  <option data='5' value='five_stars'>5 Stars</option>
                 </select>
               </div>
             </div>

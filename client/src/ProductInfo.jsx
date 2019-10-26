@@ -66,11 +66,6 @@ const classes = useStyles();
                    <Typography className={classes.heading}>&nbsp;&nbsp;&nbsp;Description</Typography>
                </ExpansionPanelSummary>
                <ExpansionPanelDetails>
-               {/** <Typography className={classes.secondaryHeading}>{props.data.name} </Typography>
-                <Typography>
-                         {props.data.description}
-                    </Typography>  */
-                }
                     <Description product={props.data} />
                </ExpansionPanelDetails>
         </ExpansionPanel>

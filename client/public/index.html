@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>FEC Component </title>
+  <title>HalLowees!</title>
 </head>
 
 <body>
@@ -13,6 +13,11 @@
     You need to enable JavaScript to run this app.
   </noscript>
   <script src="bundle.js"></script>
+  <script>
+  window.addEventListener('ratings', function(e) {
+    console.log('ratings was updated to ' + e.detail.average);
+})
+  </script>
 </body>
 
 </html>
