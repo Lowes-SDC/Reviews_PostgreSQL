@@ -132,7 +132,7 @@ class Ratings extends Component {
     var ce = new CustomEvent('ratings', { detail:
       {
         average: this.state.stars,
-        totalReviews: this.state.rating.totalVotes,
+        totalReviews: this.state.rating.ratings[0].totalVotes,
       }
     })
     window.dispatchEvent(ce);

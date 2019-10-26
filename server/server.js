@@ -109,3 +109,15 @@ app.get('/api/initialize', (req,res) => {
         }
     })
 })
+
+app.get('/api/synchstars',(req,res) => {
+    console.log('synching stars with reviews');
+    db.synchStars((err,result) => {
+        if (err) {
+            res.send(err)
+        } else {
+            res.send(result)
+        }
+    })
+
+})

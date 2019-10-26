@@ -133,6 +133,11 @@ const initializeRatings= function(callback) {
     })
 }
 
+const synchStars = function(callback) {
+    var sql = 'SELECT product_id,starsGiven FROM redjuan.reviews WHERE starsGiven IS NOT NULL';
+    //connection.query(sql, (err,results))
+}
+
 // helper function to generate random number
 const randomvotes = function() {
     return (Math.floor(Math.random()*100));
@@ -145,5 +150,6 @@ module.exports = {
     initializeRatings,
     setProductRating,
     setProductReview,
-    getProductReviews
+    getProductReviews,
+    synchStars
 }
