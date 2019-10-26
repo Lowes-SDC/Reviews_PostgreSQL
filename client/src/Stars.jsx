@@ -34,7 +34,7 @@ const Stars = (props) => {
     }
     let starDivs = [];
     for (let i=0; i<5; i++) {
-      if (i <= stars) {
+      if (i < stars) {
         starDivs.push(<StarIcon key={i}/>)
       } else  {
         starDivs.push(<StarBorder key={i}/>)
