@@ -1,0 +1,29 @@
+#carDivider {
+   font-family: "DIN Next",Helvetica,Arial,sans-serif;
+   color: #333;
+   margin-top: 40px;
+   text-align: center;
+   font-size: 2em;
+   margin-bottom: 10px;
+}
+#carousel {
+   margin-bottom: 500px;
+   flex-basis: 0;
+}
+#productInfo {
+   width: 1031.06px;
+   max-width: 1040px;
+}
+#description {
+   max-width: 1040px;
+   margin-bottom: 40px;
+   margin-left: 0;
+}
+#head {
+   max-width: 1040px;
+}
+#cs {
+   position: absolute;
+   top: 20%;
+   left: 23%;
+}
