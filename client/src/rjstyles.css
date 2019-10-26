@@ -100,25 +100,3 @@ const titleStyle = {
   padding:'20px',
   width:'100%',
   fontSize: '1.6rem'
-}
-const reviewDiv = {
-  paddingTop:'20px',
-  display:'flex',
-  flexDirection:'row',
-  fontSize:'14px',
-  fontWeight:'700',
-  marginBottom: '5px',
-  width:'100%'
-  
-}
-const emailForm = {
-  width:'100%',
-  flexGrow:'2',
-}
-
-const purchaseStyle = {
-  paddingTop:'5px',
-  paddingLeft:'30px',
-  width:'100%',
-  flexGrow:'1'
-}

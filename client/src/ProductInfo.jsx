@@ -11,6 +11,7 @@ import StarIcon from '@material-ui/icons/StarBorder'
 import QA from '@material-ui/icons/QuestionAnswerOutlined'
 import Specs from '@material-ui/icons/LibraryBooksRounded';
 import Description from './Description'
+import Specifications from './Specifications'
 
 //StarHalf
 
@@ -81,10 +82,7 @@ const classes = useStyles();
 
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                    <Typography>
-                        Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros,
-                        vitae egestas augue. Duis vel est augue.
-                    </Typography>
+                   <Specifications />
                 </ExpansionPanelDetails>
       </ExpansionPanel>
       <ExpansionPanel >

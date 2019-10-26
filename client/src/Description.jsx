@@ -1,5 +1,5 @@
 import React from 'React'
-import { fontFamily } from '@material-ui/system';
+
 
 const DescContainer = {
     width:'100%',
@@ -33,7 +33,7 @@ const Description = (props) => {
          <div style={DescChild}>{props.product.name}</div>
          <div style={DescChild}>
                 {descriptions.map((desc, i) => 
-                    <div> &bull; {desc}</div>
+                    <div key={i}> &bull; {desc}</div>
                 )}
         </div>
      </div>

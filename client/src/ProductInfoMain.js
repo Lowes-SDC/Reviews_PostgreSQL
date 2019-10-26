@@ -12,14 +12,29 @@ class ProductInfoMain extends Component {
     }
 
 
-    componentDidMount() {
-        // get a randomProduct to pass to our component
-        axios.get(server+'/api/randomproduct')
+    getProduct(itemId) {
+        console.log('get Product ' + itemId)
+        // get product
+        axios.get(server+'/api/products',
+        { 
+            params:{id:itemId}
+        })
         .then(response => {
             this.setState({
                selectedProduct:response.data
             })
         })
+    }
+
+    componentDidMount() {
+        // get a randomProduct to pass to our component
+        window.addEventListener('changeItem', (e) => this.getProduct(e.detail))
+        // axios.get(server+'/api/randomproduct')
+        // .then(response => {
+        //     this.setState({
+        //        selectedProduct:response.data
+        //     })
+        // })
     }
 
     render() {

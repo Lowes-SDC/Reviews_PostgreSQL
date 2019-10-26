@@ -19,6 +19,7 @@ app.get('/api/randomproduct', (req,res) => {
         } else
         {
             db.getProduct(result, (err,product) => {
+               console.log('get product result '+result)
                 if (err) {
                     res.send(err);
                 } else {
@@ -30,14 +31,14 @@ app.get('/api/randomproduct', (req,res) => {
     })
 })
 
-app.post('/api/products', (req,res) => {
-
-    db.getProduct('14', (err,result) => {
+app.get('/api/products', (req,res) => {
+    let id = req.query.id;
+    db.getProduct(id, (err,product) => {
         if (err) {
             res.send(err)
         } else
         {
-            res.send(result);
+            res.send(JSON.stringify(product));
         }
     } )
 })
