@@ -1,3 +1,5 @@
 node_modules
 db/config.js
 client/public/*. hot-update.js
+db/products.csv
+db/reviews.csv
