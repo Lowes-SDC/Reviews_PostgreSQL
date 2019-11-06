@@ -13,7 +13,6 @@ const formStyle = {
 const formText = {
   display:'block',
   fontSize:'14px',
- 
 }
 const picture = {
   
@@ -25,7 +24,6 @@ const aboutYouContainer = {
   padding:'20px',
   fontWeight:'700',
   fontSize:'14px',
- 
 }
 
 const aboutYouStyle = {

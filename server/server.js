@@ -19,14 +19,13 @@ app.get('/api/randomproduct', (req,res) => {
         } else
         {
             db.getProduct(result, (err,product) => {
-               console.log('get product result '+result)
+                //console.log('get product result '+result)
                 if (err) {
                     res.send(err);
                 } else {
                     res.send(JSON.stringify(product));
                 }
             })
-
         }
     })
 })
@@ -46,8 +45,7 @@ app.get('/api/products', (req,res) => {
 app.get('/api/productreview', (req,res) => {
  // get product id
     let id = req.query.id;
-    var r = " get product id = "+id
-   
+    var r = " get product id = " + id;
     res.send(r);
  // insert all into product id 
 });
@@ -68,7 +66,6 @@ app.post('/api/productreview',(req,res)=> {
                     res.send(JSON.stringify(result))
                 }
             });
-          
         }
     })
 })
@@ -87,14 +84,12 @@ app.get('/api/productrating', (req,res) => {
                     res.send(err);
                 } else 
                 {
-                 var ro = {};
-                 ro.reviews = reviews;
-                 ro.ratings = rating;
-                 res.send(JSON.stringify(ro)); 
+                var ro = {};
+                ro.reviews = reviews;
+                ro.ratings = rating;
+                res.send(JSON.stringify(ro)); 
                 }
             })
-            
-            
         }
     })
 })

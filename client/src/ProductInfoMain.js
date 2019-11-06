@@ -11,7 +11,6 @@ class ProductInfoMain extends Component {
         }
     }
 
-
     getProduct(itemId) {
         console.log('get Product ' + itemId)
         // get product
@@ -21,7 +20,7 @@ class ProductInfoMain extends Component {
         })
         .then(response => {
             this.setState({
-               selectedProduct:response.data
+                selectedProduct:response.data
             })
         })
     }
@@ -34,7 +33,7 @@ class ProductInfoMain extends Component {
         })
         .then(response => {
             this.setState({
-               selectedProduct:response.data
+                selectedProduct:response.data
             })
         })
     }
@@ -43,7 +42,7 @@ class ProductInfoMain extends Component {
         return(
             <div>
                 <ProductInfo data={this.state.selectedProduct} />
-           </div>
+            </div>
         )
     }
 }
