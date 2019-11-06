@@ -2,6 +2,7 @@ const express = require('express')
 const db = require('../db');
 const bodyParser = require('body-parser')
 const cors = require('cors')
+const { Client } = require('pg');
 
 const app = express();
 const port = 8080;
@@ -11,6 +12,17 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
 app.use(express.static(__dirname + '/../client/public/'))
 app.listen(port,() => console.log(` Express listening on port ${port}!`))
+
+
+app.get('/cats', (req,res)=> {
+    db.getReviewsPerId(10,(err, reviews)  => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.send(JSON.stringify(product));
+        }
+    })
+})
 
 app.get('/api/randomproduct', (req,res) => {
     db.getRandomProductId((err,result) => {
