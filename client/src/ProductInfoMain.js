@@ -14,6 +14,7 @@ class ProductInfoMain extends Component {
     getProduct(itemId) {
         console.log('get Product ' + itemId)
         // get product
+        //console.log(server)
         axios.get(server+'/api/products',
         { 
             params:{id:itemId}
@@ -41,7 +42,7 @@ class ProductInfoMain extends Component {
     render() {
         return(
             <div>
-                <ProductInfo data={this.state.selectedProduct} />
+                HI<ProductInfo data={this.state.selectedProduct} />
             </div>
         )
     }

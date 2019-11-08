@@ -3,6 +3,7 @@ const db = require('../db');
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const { Client } = require('pg');
+const newRelic  =  require('newrelic')
 
 const app = express();
 const port = 8080;
@@ -14,15 +15,43 @@ app.use(express.static(__dirname + '/../client/public/'))
 app.listen(port,() => console.log(` Express listening on port ${port}!`))
 
 
-app.get('/cats', (req,res)=> {
-    db.getReviewsPerId(10,(err, reviews)  => {
+app.get('/api/productrating', (req,res)=> {
+    //console.log(req.query.id)
+    id = 999988;
+    db.getReviewsPerId(id, (err,reviews) => {
         if (err) {
+            //console.log(err)
             res.send(err);
         } else {
-            res.send(JSON.stringify(product));
+            //console.log('hi')
+            //console.log(reviews)
+            res.send(JSON.stringify(reviews));
         }
     })
 })
+// app.get('/api/productrating', (req,res) => {
+//     // get id
+//     let id = req.query.id;
+//     db.getProductRating(id, (err,rating) => {
+//         if (err) {
+//             res.send(err);
+//         } else
+//         {
+//             // get product reviews
+//             db.getProductReviews(id, (err, reviews) => {
+//                 if (err) {
+//                     res.send(err);
+//                 } else 
+//                 {
+//                 var ro = {};
+//                 ro.reviews = reviews;
+//                 ro.ratings = rating;
+//                 res.send(JSON.stringify(ro)); 
+//                 }
+//             })
+//         }
+//     })
+// })
 
 app.get('/api/randomproduct', (req,res) => {
     db.getRandomProductId((err,result) => {
@@ -82,29 +111,6 @@ app.post('/api/productreview',(req,res)=> {
     })
 })
 
-app.get('/api/productrating', (req,res) => {
-    // get id
-    let id = req.query.id;
-    db.getProductRating(id, (err,rating) => {
-        if (err) {
-            res.send(err);
-        } else
-        {
-            // get product reviews
-            db.getProductReviews(id, (err, reviews) => {
-                if (err) {
-                    res.send(err);
-                } else 
-                {
-                var ro = {};
-                ro.reviews = reviews;
-                ro.ratings = rating;
-                res.send(JSON.stringify(ro)); 
-                }
-            })
-        }
-    })
-})
 
 app.get('/api/initialize', (req,res) => {
     console.log('initializing data');

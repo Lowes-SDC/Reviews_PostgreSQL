@@ -105,7 +105,10 @@ class Ratings extends Component {
           id: this.props.product.id
         }
       })
-      .then(response => this.setReviews(response))
+      .then(response => {
+        console.log(response)
+        this.setReviews(response)
+      })
   }
 }
 
@@ -116,7 +119,7 @@ class Ratings extends Component {
     
     if (result.reviews.length === 0 ) {
       this.setState({
-         message:'Have an opinion? Help others decide how horrible this product is.',
+          message:'Have an opinion? Help others decide how horrible this product is.',
 
     })
     }

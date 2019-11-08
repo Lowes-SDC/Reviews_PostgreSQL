@@ -4,18 +4,18 @@
 // const connection = mysql.createConnection(mysqlConfig);
 
 const { Client } = require('pg');
-const client = new Client({
-  user: 'rob',
-  host: 'localhost',
-  database: 'lowes',
-  password: 'postgres',
-  port: 5432,
-});
-
-// var connectionString = "postgres://rob:password@localhost:5432/lowes";
 // const client = new Client({
-//     connectionString: connectionString
+//   user: 'rob',
+//   host: 'localhost',
+//   database: 'lowes',
+//   password: 'postgres',
+//   port: 5432,
 // });
+
+var connectionString = "postgres://rob:password@localhost:5432/lowes";
+const client = new Client({
+    connectionString: connectionString
+});
 
 //client.connect();
 
@@ -36,21 +36,17 @@ client.connect(err => {
 const getReviewsPerId = function(prod_id, callback) {
 
   const query = {
-    // give the query a unique name
-    //name: 'fetch-user',
     text: `SELECT * FROM reviews WHERE product_id=${prod_id}`
-    //values: [10],
   }
-  // callback
-  console.time('stuff')
+  //console.time('stuff')
   client.query(query, (err, res) => {
     if (err) {
-      console.log(err.stack)
+      callback(err, null) //err.stack
     } else {
-      callback(res.rows)
+      callback(null,res.rows)
     }
   })
-  console.timeEnd('stuff')
+  //console.timeEnd('stuff')
 }
 
 module.exports = {

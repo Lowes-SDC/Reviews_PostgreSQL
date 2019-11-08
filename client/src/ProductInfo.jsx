@@ -56,7 +56,7 @@ const classes = useStyles();
 
     return (
         <div className={classes.root}>
-            <div style={MainTitle}>Product Information</div>
+            <div style={MainTitle}>Product MORE Information</div>
            <ExpansionPanel  >
                <ExpansionPanelSummary
                className ={classes.multiExpansionPanelSummary}
